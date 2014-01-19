@@ -116,6 +116,7 @@ class Game
 		@ui = [new TextButton("Play", 24, 24, 'songList', @songs)]
 
 	songList: (songs) ->
+		console.log "songlist!"
 		buttonArr = [(new TextButton song.name, 0, 0, 'playSong', song) for song in songs]
 		linearlayout = new LinearLayout(buttonArr, 24px, 24px, 48px, 'vertical')
 

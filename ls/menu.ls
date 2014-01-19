@@ -28,12 +28,11 @@ class TextButton extends Button
 	(@text, @x, @y, @callback, @arg=null) ->
 
 	isEventWithinBounds: (event, ctx) ->
-
 		metrics = ctx.measureText(@text)
 		width = metrics.width
 
-		x = @x + settings.cX
-		y = @y + settings.cY
+		x = @x
+		y = @y
 
 		x <= event.clientX <= width + x and 
 		y <= event.clientY <= 24 + y
