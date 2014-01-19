@@ -1,0 +1,1 @@
+deci2 = (val) -> Math.round(val * 100) / 100

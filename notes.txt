@@ -1,0 +1,104 @@
+deadline: 
+	January is thesis exhibit.
+	December we should have the MVP.
+
+MVP:
+	3 working songs
+	Simon Says gameplay
+	7 keys
+	scoring
+	scoreboard (HTML5 local storage)
+	Tutorial
+	fastest note is 16th note
+
+Types of notes:
+	standard press
+	machinegun (do this for 1 measure)
+
+Tutorial:
+	Mascot talks to you
+
+Stretch Goal:
+	variable key qty
+	3 levels of difficulty (prereq: variable key qty)
+		extremely easy
+			Aim is to improve rhythm, teach basic rhythm
+			only one key
+		medium
+			standard stuff.
+			2 keys per hand
+		crazy tough
+			omg wtf
+			7 keys
+	Unlockable sound packs
+	variable note velocity
+	Character selection
+	character reactions
+
+Game flow:
+	At main menu
+	Choose play
+	Choose song
+	Choose difficulty for that song
+	Play song
+	Get score
+	Enter name for high score
+	Choose song
+
+Pause screen:
+	Resume
+	Restart
+	Abort
+	Exit to main menu
+
+
+Menu:
+	Play game
+	Tutorial
+	Settings
+		Volume
+		Credits
+		Key bindings
+		Change sound effects (stretch)
+
+
+Scoring:
+	stepped delta (score based on distance from "correct" mark)
+	penalize if shotgun
+	penalize if no press
+	have a "points bar", and show how many points you need to "pass".
+	make mascot react if you suck
+
+Visuals:
+	up to Angela
+
+File format:
+	game:
+		song
+		sheet (based on difficulty)
+		skin/spritesheet
+
+
+TODO FOR LEVI:
+	Look for texture packer and study it
+	make shared dropbox folder
+
+
+TODO FOR ANGELA:
+	Wireframes for everything
+		All the menus, the gameplay itself
+	Actual Assets
+		All the animations, all the sprites, all the buttons, All the states for all the assets
+
+
+Sheet:
+
+	dict = {
+		'lol': [[]]
+		'derp': [[]] 
+	}
+
+	sheet = [dict.lol, dict.derp]
+
+
+need an FSM for menu system.

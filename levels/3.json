@@ -1,0 +1,13 @@
+{
+	"name": "Hold Me Steady",
+	"src": "/audio/holdmesteady.mp3", 
+	"bpm": 96, 
+	"leadTime": 0, 
+	"measure": 8,
+	"skins": "tausug", 
+	"sheet": [
+		["j", "space"],["s", "d"],[],[], ["j"],[],[],[], ["space"],[],[],[], ["f"],[],[],[], ["j"],[],[],[], ["j"],[],[],[], ["space"],[],[],[],[],[]
+	],
+	"bg": "Rice Field.png",
+	"note": "Rice Note.png"
+}
