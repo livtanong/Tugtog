@@ -18,6 +18,7 @@
 		["j"],
 		["space"], ["f"],[],[],[], ["j"],[],[],[], ["j"],[],[],[],[],[], ["space"],[],[],[],[],[]
 	],
+	"theme": "rice",
 	"bg": "Rice Field.png",
 	"note": "Rice Note.png"
 }

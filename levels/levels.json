@@ -1,4 +1,4 @@
-{
+[{
 	"name": "Alama", 
 	"src": "/audio/Alama.mp3", 
 	"bpm": 110, 
@@ -15,6 +15,31 @@
 		["space"],[],[],[],[],
 		[], [],[],[],[],[],[],[], [],[],[],[],[],[],[], [],[],[],[],[],[],[], [],[],[],[],[],[],[], [],[],[],[]
 	],
+	"theme": "beach",
 	"bg": "Beach.png",
 	"note": "Crab Note.png"	
-}
+},
+{
+	"name": "Pagtanim ng Palay",
+	"src": "/audio/Pagtanim_ng_Palay.mp3",
+	"bpm": 120,
+	"leadTime": 870,
+	"skins": "tausug",
+	"measure": 4, 
+	"sheet": [
+		["s"],["f"],["j"],["s"],
+		["f", "l"], 
+		["j", "s"],
+		["s"],
+		["d"],
+		["f"],
+		[], 
+		["l"],
+		["k"],
+		["j"],
+		["space"], ["f"],[],[],[], ["j"],[],[],[], ["j"],[],[],[],[],[], ["space"],[],[],[],[],[]
+	],
+	"theme": "rice",
+	"bg": "Rice Field.png",
+	"note": "Rice Note.png"
+}]
