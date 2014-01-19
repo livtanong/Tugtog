@@ -1,0 +1,15 @@
+{
+  "name": "prelude-ls",
+  "homepage": "https://github.com/gkz/prelude-ls",
+  "version": "1.0.3",
+  "_release": "1.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.3",
+    "commit": "0bc0abcb3b90275073a8a65a9993dc122fbfe11d"
+  },
+  "_source": "git://github.com/gkz/prelude-ls.git",
+  "_target": "~1.0.3",
+  "_originalSource": "prelude-ls",
+  "_direct": true
+}
