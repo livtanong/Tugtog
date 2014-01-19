@@ -51,7 +51,7 @@ class Level
 		# ctx.lineTo(@topRight.x, @topRight.y)
 		# ctx.lineTo(@bottomRight.x, @bottomRight.y)
 		# ctx.lineTo(@bottomLeft.x, @bottomLeft.y)
-		bg = sdata.frames[@meta.bg].frame
+		bg = sdata.frames[themes[@meta.theme].bg].frame
 		ctx.globalAlpha = 1
 		ctx.drawImage(sprites, bg.x, bg.y, bg.w, bg.h, 0, 0, bg.w, bg.h)
 

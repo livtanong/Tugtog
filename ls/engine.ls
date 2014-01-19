@@ -1,11 +1,17 @@
 game = {}
+themes =
+	"beach":
+		"bg": "Beach.png"
+		"note": "Crab Note.png"
+	"rice":
+		"bg": "Rice Field.png"
+		"note": "Rice Note.png"
+
 $ -> 
 	$.when(
 		# //load
 		$.getJSON('/sprites/sprites.json')
 		$.getJSON('/levels/levels.json')
-		# $.getJSON('/levels/2.json')
-		# $.getJSON('/levels/3.json')
 	).then(
 		# //game
 		(sprites, levels) ->

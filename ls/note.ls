@@ -49,7 +49,7 @@ class Note
 			# ctx.fillRect(@x, @y - @h / 2, @w, @h)
 			# ctx.globalAlpha = 1
 
-			note = sdata?.frames[game.level.meta.note]?.frame
+			note = sdata?.frames[themes[game.level.meta.theme].note]?.frame
 			ctx.drawImage(sprites, note.x, note.y, note.w, note.h, @x, @y - @h/2, @w, @h)
 
 			ctx.globalAlpha = 1

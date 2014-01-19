@@ -15,9 +15,7 @@
 		["space"],[],[],[],[],
 		[], [],[],[],[],[],[],[], [],[],[],[],[],[],[], [],[],[],[],[],[],[], [],[],[],[],[],[],[], [],[],[],[]
 	],
-	"theme": "beach",
-	"bg": "Beach.png",
-	"note": "Crab Note.png"	
+	"theme": "beach"
 },
 {
 	"name": "Pagtanim ng Palay",
@@ -39,7 +37,5 @@
 		["j"],
 		["space"], ["f"],[],[],[], ["j"],[],[],[], ["j"],[],[],[],[],[], ["space"],[],[],[],[],[]
 	],
-	"theme": "rice",
-	"bg": "Rice Field.png",
-	"note": "Rice Note.png"
+	"theme": "rice"
 }]
