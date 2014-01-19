@@ -131,7 +131,7 @@ class Game
 
 	init: ->
 		$(document).on('click', @MenuController)
-		@setDelta()
-		@frame()
-		@mainMenu(@canvas)
+		@setDelta!
+		@frame!
+		@mainMenu!
 

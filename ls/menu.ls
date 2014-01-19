@@ -36,8 +36,7 @@ class TextButton extends Button
 		y = @y + settings.cY
 
 		x <= event.clientX <= width + x and 
-		y <= event.clientY <= 18 + y
-
+		y <= event.clientY <= 24 + y
 		# 18px is due to font size.
 
 	draw: (ctx) ->
