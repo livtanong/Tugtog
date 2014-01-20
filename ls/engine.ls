@@ -7,6 +7,8 @@ themes =
 		"bg": "Rice Field.png"
 		"note": "Rice Note.png"
 
+state = {}
+
 # $ -> 
 # 	$.when(
 # 		# //load
@@ -40,17 +42,22 @@ app = angular.module('tugtog', [])
 
 app.controller('Main', ($scope, $http, $q) ->
 	$scope.game = {}
-	$scope.sprites = $http.get('/sprites/sprites.json')
-	$scope.levels = $http.get('/levels/levels.json')
+	$scope.spriteReq = $http.get('/sprites/sprites.json')
+	$scope.levelReq = $http.get('/levels/levels.json')
 
-	$q.all([$scope.sprites, $scope.levels]).then((values)->
-		sprites = values.0.data
-		levels = values.1.data
+	$q.all([$scope.spriteReq, $scope.levelReq]).then((values)->
+		$scope.sprites = values.0.data
+		$scope.levels = values.1.data
 
 		canvas = $('#tugtog')[0]
 
-		$scope.game = new Game(canvas, levels, sprites)
+		$scope.game = new Game(canvas, $scope.levels, $scope.sprites)
 		$scope.game.init!
-		console.log sprites, levels, canvas
 	)
+
+	$scope.playSong = (level) ->
+		$scope.game.level = new Level(level)
+		$(document).on('keydown', @keydown)
+		$(document).on('keyup', @keyup)
+		$scope.game.start!
 )

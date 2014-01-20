@@ -13,7 +13,6 @@ class Character
 
 	hit: ->
 		@down!
-		@lastPulse = game.level.audio.getTime!
 		@isHitting = true
 
 	pulse: ->

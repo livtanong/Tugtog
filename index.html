@@ -21,7 +21,7 @@
 	<script type="text/javascript" src="js/game.js"></script>
 	<script type="text/javascript" src="js/lane.js"></script>
 	<script type="text/javascript" src="js/notifications.js"></script>
-	<script type="text/javascript" src="js/beat.js"></script>
+	<!--<script type="text/javascript" src="js/beat.js"></script>-->
 	<script type="text/javascript" src="js/engine.js"></script>
 </head>
 <body ng-controller="Main">
@@ -30,6 +30,12 @@
 	</audio> -->
 	<!-- <div>{{tester}}</div> -->
 	<!-- <game></game> -->
+
+	<ul class="levels">
+		<li ng-repeat="level in levels">
+			<a ng-click="playSong(level)">{{level.name}}</a>
+		</li>
+	</ul>
 	<canvas id="tugtog" width="960" height="640">
 	</canvas>
 </body>

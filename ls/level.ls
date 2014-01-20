@@ -4,8 +4,8 @@ class Level
 		@sheet = @meta.sheet
 		@bpm = @meta.bpm
 		@leadTime = @meta.leadTime
-		@beatDur = 60secondsperminute * 1000milliscondspersecond / @bpm #ms
-		@measure = new Beat(@meta.measure) #beats
+		# @measure = new Beat(@meta.measure) #beats
+		@measure = @meta.measure
 		@vp = new Vector(settings.screenW/2, 0)
 
 		@initPerspective!
@@ -39,10 +39,39 @@ class Level
 		# return the coordinate where the line crosses the vanishing point line
 		@ap = new Vector(l4.findX(@vp.y), @vp.y)
 
+	beatDur: (beat) -> 60secondsperminute * beat / @bpm
+
+	beatToTime: (beat) -> state.timeStartLevel + @beatDur(beat)
+
+	beatInc: (beat) -> beat += 1
+
+	spawnNote: (lane) ->
+		deadlineBeat = state.currBeat + @measure
+		deadline = @beatToTime(deadlineBeat)
+		console.log deadline
+		new PerspNote(lane, @audio.getTime!, deadline, @meta.theme)
+
+	ageOfNote: (note) -> (@audio.getTime! - note.birthday) / (note.deadline - note.birthday)
+
+	gradeNote: (note) ->
+		note.diff = @audio.getTime! - note.deadline
+		note.grade = settings.grade(note.diff)
+
 	ageToPersp: (age) ->
 		p1 = new Vector(age * settings.laneW * 7 + settings.margin, settings.finishline)
 		l = new ImplicitLine(p1, @ap)
 		l.pointFromIntersectionWith(@l2).y
+
+	updateNote: (note) ->
+		if note.isPlaying
+			note.y = @ageToPersp(@ageOfNote(note))
+			note.x = note.lane.l1.findX(note.y)
+			note.w = note.lane.l2.findX(note.y) - note.x
+			note.h = note.w
+			note.opacity -= 0.6 * state.delta * 1000 / @beatDur
+
+			# if @audio.getTime! > note.deadline + 1second
+				# note.isPlaying = false
 
 	draw: (ctx, sdata) ->
 		# ctx.beginPath!
