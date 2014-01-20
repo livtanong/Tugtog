@@ -39,7 +39,6 @@ class Game
 		@notesToRender = @notesToRender |> filter (.isPlaying)
 
 	triggerNote: (note) ->
-		console.log 'hi'
 		note.isActive = false
 		# note.color = "green"
 		new Notif(@, "#{@grade}!, #{deci2(@diff)} s")

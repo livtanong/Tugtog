@@ -42,6 +42,7 @@ app = angular.module('tugtog', [])
 
 app.controller('Main', ($scope, $http, $q) ->
 	$scope.game = {}
+	$scope.score = 0
 	$scope.spriteReq = $http.get('/sprites/sprites.json')
 	$scope.levelReq = $http.get('/levels/levels.json')
 
@@ -55,7 +56,12 @@ app.controller('Main', ($scope, $http, $q) ->
 		$scope.game.init!
 	)
 
+	# $scope.$watch('game', ->
+	# 	$scope.score = $scope.game.score
+	# )
+
 	$scope.keydown = (e) ~>
+		console.log "hello?"
 		lane = $scope.game.level.lanes[settings.keys[e.which]]
 		if lane
 			lane.opacity = 0.8
@@ -78,7 +84,7 @@ app.controller('Main', ($scope, $http, $q) ->
 
 	$scope.playSong = (level) ->
 		$scope.game.level = new Level(level)
-		$(document).on('keydown', $scope.keydown)
-		$(document).on('keyup', $scope.keyup)
+		# $(document).on('keydown', $scope.keydown)
+		# $(document).on('keyup', $scope.keyup)
 		$scope.game.start!
 )

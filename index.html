@@ -24,7 +24,10 @@
 	<!--<script type="text/javascript" src="js/beat.js"></script>-->
 	<script type="text/javascript" src="js/engine.js"></script>
 </head>Palay
-<body ng-controller="Main">
+<body ng-controller="Main" 
+	ng-keydown="keydown($event)"
+	ng-keyup="keyup($event)"
+	ng-init="count = 0">
 <!-- 	<audio id="tugtogaudio" src="audio/papaoutai.m4a" preload="auto">
 		<p>Your browser does not support the audio element.</p>
 	</audio> -->
@@ -36,8 +39,11 @@
 			<a ng-click="playSong(level)">{{level.name}}</a>
 		</li>
 	</ul>
-	<div class="score">{{game.score}}</div>
-	<canvas id="tugtog" width="960" height="640">
+	<h2 class="score">{{game.score}}</h2>
+	<canvas 
+		id="tugtog" 
+		width="960" 
+		height="640" >
 	</canvas>
 </body>
 </html>
