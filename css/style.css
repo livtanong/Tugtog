@@ -5,3 +5,19 @@ body {
 canvas {
 	position: static;
 }
+
+section {
+	width: 960px;
+	height: 640px;
+}
+
+#game {
+	/*position: relative;*/
+}
+#game h2 {
+	position: absolute;
+	text-align: center;
+	width: 960px;
+	font-size: 48px;
+	color: white;	
+}

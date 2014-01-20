@@ -23,7 +23,7 @@
 	<script type="text/javascript" src="js/notifications.js"></script>
 	<!--<script type="text/javascript" src="js/beat.js"></script>-->
 	<script type="text/javascript" src="js/engine.js"></script>
-</head>Palay
+</head>
 <body ng-controller="Main" 
 	ng-keydown="keydown($event)"
 	ng-keyup="keyup($event)"
@@ -33,17 +33,20 @@
 	</audio> -->
 	<!-- <div>{{tester}}</div> -->
 	<!-- <game></game> -->
-
-	<ul class="levels">
-		<li ng-repeat="level in levels">
-			<a ng-click="playSong(level)">{{level.name}}</a>
-		</li>
-	</ul>
-	<h2 class="score">{{game.score}}</h2>
-	<canvas 
-		id="tugtog" 
-		width="960" 
-		height="640" >
-	</canvas>
+	<section id="level-select" ng-show="current=='levels'">
+		<ul class="levels">
+			<li ng-repeat="level in levels">
+				<a ng-click="playSong(level)">{{level.name}}</a>
+			</li>
+		</ul>
+	</section>
+	<section id="game" ng-show="current=='game'">
+		<h2 class="score">{{game.score}}</h2>
+		<canvas 
+			id="tugtog" 
+			width="960" 
+			height="640" >
+		</canvas>
+	</section>
 </body>
 </html>

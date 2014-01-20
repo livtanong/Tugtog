@@ -41,6 +41,7 @@ app = angular.module('tugtog', [])
 # )
 
 app.controller('Main', ($scope, $http, $q) ->
+	$scope.current = 'levels'
 	$scope.game = {}
 	$scope.score = 0
 	$scope.spriteReq = $http.get('/sprites/sprites.json')
@@ -83,6 +84,7 @@ app.controller('Main', ($scope, $http, $q) ->
 			lane.opacity = 0
 
 	$scope.playSong = (level) ->
+		$scope.current = 'game'
 		$scope.game.level = new Level(level)
 		# $(document).on('keydown', $scope.keydown)
 		# $(document).on('keyup', $scope.keyup)
