@@ -13,13 +13,13 @@ class PerspNote
 		# @lifespan = @deadlineBeat + 2beats
 		@length = @lane.end - @lane.start
 
-	trigger: (game) ->
-		@isActive = false
-		@color = "green"
-		new Notif(@, "#{@grade}!, #{deci2(@diff)} s")
+	# trigger: (game) ->
+	# 	@isActive = false
+	# 	@color = "green"
+	# 	new Notif(@, "#{@grade}!, #{deci2(@diff)} s")
 
-		# TODO: make game.score into not game.
-		game.score.add settings.score(@grade)
+	# 	# TODO: make game.score into not game.
+	# 	state.score.add settings.score(@grade)
 
 	pulse: ->
 		@opacity = 1

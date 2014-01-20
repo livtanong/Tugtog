@@ -36,10 +36,10 @@ class Renderer
 
 				[notif.draw(@ctx) for notif in game.notifs]
 
-				game.score.draw(@ctx)
+				# game.score.draw(@ctx)
 
 			@drawChars(game.chars)
-			@drawUI(game.ui)
+			# @drawUI(game.ui)
 
 		innerRedraw()
 

@@ -13,7 +13,7 @@
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/settings.js"></script>
 	<script type="text/javascript" src="js/vector.js"></script>
-	<script type="text/javascript" src="js/score.js"></script>
+	<!--<script type="text/javascript" src="js/score.js"></script>-->
 	<script type="text/javascript" src="js/note.js"></script>
 	<script type="text/javascript" src="js/level.js"></script>
 	<script type="text/javascript" src="js/character.js"></script>
@@ -23,7 +23,7 @@
 	<script type="text/javascript" src="js/notifications.js"></script>
 	<!--<script type="text/javascript" src="js/beat.js"></script>-->
 	<script type="text/javascript" src="js/engine.js"></script>
-</head>
+</head>Palay
 <body ng-controller="Main">
 <!-- 	<audio id="tugtogaudio" src="audio/papaoutai.m4a" preload="auto">
 		<p>Your browser does not support the audio element.</p>
@@ -36,6 +36,7 @@
 			<a ng-click="playSong(level)">{{level.name}}</a>
 		</li>
 	</ul>
+	<div class="score">{{game.score}}</div>
 	<canvas id="tugtog" width="960" height="640">
 	</canvas>
 </body>

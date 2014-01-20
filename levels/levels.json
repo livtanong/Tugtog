@@ -6,7 +6,8 @@
 	"skins": "tausug",	
 	"measure": 4,
 	"sheet": [
-		["f"],["space"],["j"], ["space"],[],
+		["f"],["space"],["j"], ["space"],
+		[],[],[],[],
 		["j"],["space"],["f"],["space"],[], 
 		["space"],[],["space"],[], 
 		["s"],["d"],["f"],[],

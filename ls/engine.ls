@@ -59,14 +59,17 @@ app.controller('Main', ($scope, $http, $q) ->
 		lane = $scope.game.level.lanes[settings.keys[e.which]]
 		if lane
 			lane.opacity = 0.8
-			key = lane.key
+			# console.log($scope.game.notesToRender |> filter((note) -> note.lane.key is lane.key))
+
 			candidate = $scope.game.notesToRender
-				|> filter (.key is key)
-				|> map ((note) -> @level.gradeNote(note); note)
+				|> filter (.lane.key is lane.key)
+				|> map ((note) -> $scope.game.level.gradeNote(note); note)
 				|> sort-by (-> Math.abs(it.diff))
 				|> head
 
-			if candidate?.isActive and candidate.grade isnt "ignored" then candidate.trigger!
+			# console.log $scope.game.notesToRender |> map (.lane.key)
+			if candidate?.isActive and $scope.game.level.gradeNote(candidate) isnt "ignored"
+				$scope.game.triggerNote(candidate)
 
 	$scope.keyup = (e) ~>
 		lane = $scope.game.level.lanes[settings.keys[e.which]]

@@ -2,12 +2,12 @@ class Game
 	(@canvas, @songs, @sdata) ->
 		@renderer = new Renderer(@canvas, @sdata)
 		@ctx = @canvas.getContext('2d')
+		@score = 0
 
 	notifs: []
 	ui: []
 	chars: []
 	notesToRender: []
-	score: new Score()
 	highlightedLane: ''
 	hasLevelStarted: false
 	haveNotesComeOut: false
@@ -37,6 +37,15 @@ class Game
 
 	cleanNotes: ->
 		@notesToRender = @notesToRender |> filter (.isPlaying)
+
+	triggerNote: (note) ->
+		console.log 'hi'
+		note.isActive = false
+		# note.color = "green"
+		new Notif(@, "#{@grade}!, #{deci2(@diff)} s")
+
+		@score += settings.score(note.grade)
+		console.log @score
 
 	update: ~>
 		# menu stuff
@@ -84,8 +93,6 @@ class Game
 		state.now = Date.now!
 		state.delta = (state.now - state.then) / 1000
 		state.then = state.now
-
-	
 
 	# MenuController: (e) ~>
 	# 	for elem in @ui

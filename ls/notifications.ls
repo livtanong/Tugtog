@@ -8,7 +8,7 @@ class Notif
 		@animNotifs = []
 		@age = 0 #seconds
 		@speed = 80
-		game.notifs.push(@)
+		# game.notifs.push(@)
 
 	percentAge: ->
 		(@lifespan - @age) / @lifespan
