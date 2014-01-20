@@ -55,9 +55,27 @@ app.controller('Main', ($scope, $http, $q) ->
 		$scope.game.init!
 	)
 
+	$scope.keydown = (e) ~>
+		lane = $scope.game.level.lanes[settings.keys[e.which]]
+		if lane
+			lane.opacity = 0.8
+			key = lane.key
+			candidate = $scope.game.notesToRender
+				|> filter (.key is key)
+				|> map ((note) -> @level.gradeNote(note); note)
+				|> sort-by (-> Math.abs(it.diff))
+				|> head
+
+			if candidate?.isActive and candidate.grade isnt "ignored" then candidate.trigger!
+
+	$scope.keyup = (e) ~>
+		lane = $scope.game.level.lanes[settings.keys[e.which]]
+		if lane
+			lane.opacity = 0
+
 	$scope.playSong = (level) ->
 		$scope.game.level = new Level(level)
-		$(document).on('keydown', @keydown)
-		$(document).on('keyup', @keyup)
+		$(document).on('keydown', $scope.keydown)
+		$(document).on('keyup', $scope.keyup)
 		$scope.game.start!
 )

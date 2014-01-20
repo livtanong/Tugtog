@@ -48,7 +48,6 @@ class Level
 	spawnNote: (lane) ->
 		deadlineBeat = state.currBeat + @measure
 		deadline = @beatToTime(deadlineBeat)
-		console.log deadline
 		new PerspNote(lane, @audio.getTime!, deadline, @meta.theme)
 
 	ageOfNote: (note) -> (@audio.getTime! - note.birthday) / (note.deadline - note.birthday)
@@ -70,8 +69,8 @@ class Level
 			note.h = note.w
 			note.opacity -= 0.6 * state.delta * 1000 / @beatDur
 
-			# if @audio.getTime! > note.deadline + 1second
-				# note.isPlaying = false
+			if @audio.getTime! > note.deadline + 1second
+				note.isPlaying = false
 
 	draw: (ctx, sdata) ->
 		# ctx.beginPath!

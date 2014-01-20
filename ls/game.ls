@@ -66,7 +66,7 @@ class Game
 					[lane.char.pulse! for , lane of @level.lanes]
 
 					state.currBeat += 1
-					
+
 				[@level.updateNote(note) for note in @notesToRender]
 				[notif.animUpdate! for notif in @notifs]
 				# [lane.char.animUpdate! for , lane of @level.lanes]
@@ -81,31 +81,11 @@ class Game
 		requestAnimationFrame(@frame)
 
 	setDelta: ->
-		# @now = Date.now!
-		# @delta = (@now - @then) / 1000
-		# @then = @now
 		state.now = Date.now!
 		state.delta = (state.now - state.then) / 1000
 		state.then = state.now
 
-	keydown: (e) ~>
-		# console.log 'hi'
-		lane = @level.lanes[settings.keys[e.which]]
-		if lane
-			lane.opacity = 0.8
-			key = lane.key
-			candidate = @notesToRender
-				|> filter (.key is key)
-				|> map ((note) -> @level.gradeNote(note); note)
-				|> sort-by (-> Math.abs(it.diff))
-				|> head
-
-			if candidate?.isActive and candidate.grade isnt "ignored" then candidate.trigger!
-
-	keyup: (e) ~>
-		lane = @level.lanes[settings.keys[e.which]]
-		if lane
-			lane.opacity = 0
+	
 
 	# MenuController: (e) ~>
 	# 	for elem in @ui
