@@ -1,15 +1,15 @@
 # game = {}
 themes =
   * "name": "beach"
-    "bg": "Beach.png"
+    "bg": "beach.png"
     "note": "Crab Note.png"
     "menu": "beach-menu.png"
   * "name": "rice"
-    "bg": "Rice Field.png"
+    "bg": "rice.png"
     "note": "Rice Note.png"
     "menu": "rice-menu.png"
   * "name": "barrio"
-    "bg": "Barrio.png"
+    "bg": "barrio.png"
     "note": "Chick Note.png"
     "menu": "barrio-menu.png"
 

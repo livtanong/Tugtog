@@ -44,5 +44,7 @@ class Renderer
 		innerRedraw()
 
 	clearCanvas: ->
-		@ctx.fillStyle = "black"
-		@ctx.fillRect(0, 0, @canvas.width, @canvas.height);
+		# @ctx.fillStyle = "transparent"
+		# @ctx.fillRect(0, 0, @canvas.width, @canvas.height);
+
+		@ctx.clearRect(0,0,@canvas.width,@canvas.height);

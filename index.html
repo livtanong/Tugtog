@@ -38,7 +38,7 @@
 			class="level-select" 
 			ng-repeat="level in levels" 
 			ng-show="currentLevel == $index" 
-			style="background-image: url('images/bgs/{{getTheme(level.theme).menu}}')"> 
+			ng-style="{'background-image': 'url(images/bgs/' + getTheme(level.theme).menu + ')'}"> 
 			<ul class="songs">
 				<li>
 					<a class="page" ng-click="back()">back</a>
@@ -58,7 +58,7 @@
 			</ul>
 		</div>
 	</section>
-	<section ng-show="current=='game'">
+	<section ng-show="current=='game'" ng-style="{'background-image': 'url(images/bgs/' + themes[currentLevel].bg + ')'}">
 		<h2 class="score">{{game.score}}</h2>
 		<canvas 
 			id="tugtog" 

@@ -81,10 +81,11 @@ class Level
 		# ctx.lineTo(@bottomLeft.x, @bottomLeft.y)
 		# console.log @meta.theme, (themes |> filter((x) -> x.name is @meta.theme))
 		# console.log(@meta.theme, themes |> find((x) -> x.name is @meta.theme))
-		theme = themes |> find ((x) ~> x.name is @meta.theme)
-		bg = sdata.frames[theme.bg].frame
-		ctx.globalAlpha = 1
-		ctx.drawImage(sprites, bg.x, bg.y, bg.w, bg.h, 0, 0, bg.w, bg.h)
+
+		# theme = themes |> find ((x) ~> x.name is @meta.theme)
+		# bg = sdata.frames[theme.bg].frame
+		# ctx.globalAlpha = 1
+		# ctx.drawImage(sprites, bg.x, bg.y, bg.w, bg.h, 0, 0, bg.w, bg.h)
 
 		# ctx.strokeStyle = 'red'
 		# ctx.stroke!
