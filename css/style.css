@@ -1,3 +1,41 @@
 body {
 	font-family: "Action Man";
 }
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.song {
+	float: left;
+	background-color: black;
+	width: 128px;
+	height: 128px;
+}
+
+canvas {
+	position: static;
+}
+
+section {
+	width: 960px;
+	height: 640px;
+}
+
+#game {
+	/*position: relative;*/
+}
+#game h2 {
+	position: absolute;
+	text-align: center;
+	width: 960px;
+	font-size: 48px;
+	color: white;	
+}
+
+.level-select {
+	width: 960px;
+	height: 640px;
+}

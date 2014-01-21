@@ -5,10 +5,10 @@ class Lane
 		@opacity = 0
 		@start = settings.startline
 		@end = settings.finishline
-		@char = new Character(@x, settings.startline - 128)
+		# @char = new Character(@x, settings.startline - 128)
 
-	noteProto: ->
-		new Note(@key, @x, @w, @start, @end)
+	# noteProto: ->
+	# 	new Note(@key, @x, @w, @start, @end)
 
 	draw: (ctx) ->
 		ctx.strokeStyle = "gray"
@@ -30,10 +30,10 @@ class PerspLane extends Lane
 		@x2 = @l2.findX(@start)
 		@x1e = @l1.findX(@end)
 		@x2e = @l2.findX(@end)
-		@char = new Character((@x1 + @x2)/2, settings.startline - 128)
+		@char = new Character((@x1 + @x2)/2, settings.startline - 188)
 
-	noteProto: ->
-		new PerspNote(@key, @l1, @l2, @start, @end, @ap)
+	# noteProto: ->
+	# 	new PerspNote(@key, @l1, @l2, @start, @end, @ap)
 		
 	draw: (ctx) ->
 		ctx.beginPath!

@@ -1,30 +1,75 @@
-game = {}
+# game = {}
 themes =
-	"beach":
-		"bg": "Beach.png"
-		"note": "Crab Note.png"
-	"rice":
-		"bg": "Rice Field.png"
-		"note": "Rice Note.png"
+  * "name": "beach"
+    "bg": "Beach.png"
+    "note": "Crab Note.png"
+    "menu": "beach-menu.png"
+  * "name": "rice"
+    "bg": "Rice Field.png"
+    "note": "Rice Note.png"
+    "menu": "rice-menu.png"
+  * "name": "barrio"
+    "bg": "Barrio.png"
+    "note": "Chick Note.png"
+    "menu": "barrio-menu.png"
 
-$ -> 
-	$.when(
-		# //load
-		$.getJSON('/sprites/sprites.json')
-		$.getJSON('/levels/levels.json')
-	).then(
-		# //game
-		(sprites, levels) ->
-			songs = levels[0]
+state = {}
 
-			canvas = $('#tugtog')[0]
+app = angular.module('tugtog', [])
 
-			settings.cX = $('#tugtog').position().left
-			settings.cY = $('#tugtog').position().top
+app.controller('Main', ($scope, $http, $q) ->
+  $scope.current = 'levels'
+  $scope.currentLevel = 0
+  $scope.game = {}
+  $scope.themes = themes
+  $scope.score = 0
+  $scope.spriteReq = $http.get('/sprites/sprites.json')
+  $scope.levelReq = $http.get('/levels/levels.json')
 
-			game := new Game(canvas, songs, sprites[0])
-			game.init()
-			
-			angular.element(document).ready ->
-				angular.bootstrap(document)
-	)
+  $q.all([$scope.spriteReq, $scope.levelReq]).then((values)->
+    $scope.sprites = values.0.data
+    $scope.levels = values.1.data
+
+    canvas = $('#tugtog')[0]
+
+    $scope.game = new Game(canvas, $scope.levels, $scope.sprites)
+    $scope.game.init!
+  )
+
+  $scope.getTheme = (theme) ->
+    # console.log $scope.themes |> find ((x) -> x.name is theme)
+    $scope.themes |> find ((x) -> x.name is theme)
+
+  $scope.next = ->
+    if $scope.currentLevel < $scope.levels.length - 1
+      $scope.currentLevel += 1
+
+  $scope.back = ->
+    if $scope.currentLevel > 0
+      $scope.currentLevel -= 1
+
+  $scope.keydown = (e) ~>
+    lane = $scope.game.level.lanes[settings.keys[e.which]]
+    if lane
+      lane.opacity = 0.8
+      # console.log($scope.game.notesToRender |> filter((note) -> note.lane.key is lane.key))
+
+      candidate = $scope.game.notesToRender
+        |> filter (.lane.key is lane.key)
+        |> map ((note) -> $scope.game.level.gradeNote(note); note)
+        |> sort-by (-> Math.abs(it.diff))
+        |> head
+
+      if candidate?.isActive and $scope.game.level.gradeNote(candidate) isnt "ignored"
+        $scope.game.triggerNote(candidate)
+
+  $scope.keyup = (e) ~>
+    lane = $scope.game.level.lanes[settings.keys[e.which]]
+    if lane
+      lane.opacity = 0
+
+  $scope.playSong = (level) ->
+    $scope.current = 'game'
+    $scope.game.level = new Level(level)
+    $scope.game.start!
+)

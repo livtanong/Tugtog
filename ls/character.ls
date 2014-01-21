@@ -13,11 +13,10 @@ class Character
 
 	hit: ->
 		@down!
-		@lastPulse = game.level.audio.getTime!
 		@isHitting = true
 
 	pulse: ->
-		@headY = @y+@pulseMag
+		@headY = @y + @pulseMag
 
 	animUpdate: ->
 		if @isHitting and game.level.audio.getTime! > @lastPulse + @hitDur
@@ -26,8 +25,8 @@ class Character
 		@headY = @headY - speed * game.delta * 1000
 	
 	draw: (ctx, sdata) ->
-		sUp = sdata.frames['up.png'].frame
-		sDown = sdata.frames['down.png'].frame
+		sUp = sdata.frames['raised.png'].frame
+		sDown = sdata.frames['lowered.png'].frame
 		sHead = sdata.frames['head.png'].frame
 
 		if @state is "down" then s = sDown else s = sUp
@@ -35,5 +34,5 @@ class Character
 		# centerize
 		x = @x - s.w / 2
 
-		ctx.drawImage(sprites, s.x, s.y, s.w, s.h, x, @y, s.w, s.h)
+		ctx.drawImage(sprites, s.x, s.y - 10, s.w, s.h, x, @y, s.w, s.h)
 		ctx.drawImage(sprites, sHead.x, sHead.y, sHead.w, sHead.h, x, @headY, sHead.w, sHead.h)
