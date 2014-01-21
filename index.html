@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="bower_components/prelude-ls/browser/prelude-browser-min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="bower_components/buzz/dist/buzz.min.js" type="text/javascript"></script>
 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="styles/css/style.css">
 
 	<script type="text/javascript" src="js/utilities.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
@@ -39,9 +39,23 @@
 			ng-repeat="level in levels" 
 			ng-show="currentLevel == $index" 
 			style="background-image: url('images/bgs/{{getTheme(level.theme).menu}}')"> 
-			<div ng-click="back()">back</div>
-			<div ng-click="next()">next</div>
-			<a ng-click="playSong(level)">{{level.name}}</a>
+			<ul class="songs">
+				<li>
+					<a class="page" ng-click="back()">back</a>
+				</li>
+				<li>
+					<div class="song disabled"></div>
+				</li>
+				<li>
+					<a class="song" ng-click="playSong(level)">{{level.name}}</a>
+				</li>
+				<li>
+					<div class="song disabled"></div>
+				</li>
+				<li>
+					<a class="page" ng-click="next()">next</a>
+				</li>
+			</ul>
 		</div>
 	</section>
 	<section ng-show="current=='game'">
