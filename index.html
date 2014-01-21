@@ -34,14 +34,13 @@
 				<a ng-click="playSong(level)">{{level.name}}</a>
 			</li>
 		</ul> -->
-		{{currentLevel}}
-		<div ng-click="back()">back</div>
-		<div ng-click="next()">next</div>
 		<div 
 			class="level-select" 
 			ng-repeat="level in levels" 
 			ng-show="currentLevel == $index" 
 			style="background-image: url('images/bgs/{{getTheme(level.theme).menu}}')"> 
+			<div ng-click="back()">back</div>
+			<div ng-click="next()">next</div>
 			<a ng-click="playSong(level)">{{level.name}}</a>
 		</div>
 	</section>
