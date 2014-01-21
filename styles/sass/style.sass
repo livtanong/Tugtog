@@ -10,6 +10,7 @@ ul
 
 .songs
 	text-align: center
+
 	li
 		display: inline-block
 		margin-right: 20px
@@ -20,6 +21,18 @@ ul
 	display: block
 	height: 128px
 	width: 128px
+	color: white
+
+.level-select
+	+box-sizing(border-box)
+	padding-top: 128px
+	width: 960px
+	height: 640px
+	&.beach .song
+		background-color: blue
+
+	&.bukid .song
+		background-color: green
 
 canvas
 	position: static
@@ -36,7 +49,3 @@ section
 	width: 960px
 	font-size: 48px
 	color: white	
-
-.level-select
-	width: 960px
-	height: 640px

@@ -17,7 +17,20 @@ ul {
 .song {
   display: block;
   height: 128px;
-  width: 128px; }
+  width: 128px;
+  color: white; }
+
+.level-select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 128px;
+  width: 960px;
+  height: 640px; }
+  .level-select.beach .song {
+    background-color: blue; }
+  .level-select.bukid .song {
+    background-color: green; }
 
 canvas {
   position: static; }
@@ -35,7 +48,3 @@ section {
   width: 960px;
   font-size: 48px;
   color: white; }
-
-.level-select {
-  width: 960px;
-  height: 640px; }
