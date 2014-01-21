@@ -1,5 +1,6 @@
 body {
-  font-family: "Action Man"; }
+  font-family: "Action Man";
+  margin: 0; }
 
 ul {
   list-style: none;
@@ -91,11 +92,12 @@ section {
   height: 640px; }
 
 #game {
-  /*position: relative */ }
+  position: relative; }
 
-#game h2 {
+.score {
   position: absolute;
   text-align: center;
   width: 960px;
   font-size: 48px;
-  color: white; }
+  color: white;
+  margin: 0; }
