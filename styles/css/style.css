@@ -15,10 +15,60 @@ ul {
       margin-right: 0px; }
 
 .song {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   display: block;
-  height: 128px;
-  width: 128px;
-  color: white; }
+  height: 210px;
+  width: 210px;
+  padding: 20px;
+  color: white;
+  border-radius: 8px; }
+  .song.locked {
+    background-color: #6a6868;
+    border: 10px solid #504f4f; }
+    .song.locked:hover {
+      background-color: #848181;
+      border: 10px solid #6a6868; }
+    .song.locked:active {
+      background-color: #504f4f;
+      border: 10px solid #373535; }
+  .song.beach {
+    background-color: #34b0e0;
+    border: 10px solid #1e95c3; }
+    .song.beach:hover {
+      background-color: #60c1e7;
+      border: 10px solid #34b0e0; }
+    .song.beach:active {
+      background-color: #1e95c3;
+      border: 10px solid #177397; }
+  .song.bukid {
+    background-color: #64c746;
+    border: 10px solid #4ea733; }
+    .song.bukid:hover {
+      background-color: #85d36d;
+      border: 10px solid #64c746; }
+    .song.bukid:active {
+      background-color: #4ea733;
+      border: 10px solid #3c8027; }
+  .song.barrio {
+    background-color: #db673a;
+    border: 10px solid #bf4f23; }
+    .song.barrio:hover {
+      background-color: #e38865;
+      border: 10px solid #db673a; }
+    .song.barrio:active {
+      background-color: #bf4f23;
+      border: 10px solid #943d1b; }
+  .song img {
+    display: block;
+    margin: 0px auto; }
+  .song h3 {
+    margin-top: 16px;
+    font-size: 24px; }
 
 .level-select {
   -webkit-box-sizing: border-box;
@@ -27,10 +77,6 @@ ul {
   padding-top: 128px;
   width: 960px;
   height: 640px; }
-  .level-select.beach .song {
-    background-color: blue; }
-  .level-select.bukid .song {
-    background-color: green; }
 
 canvas {
   position: static; }

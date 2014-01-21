@@ -38,28 +38,27 @@
 			class="level-select" 
 			ng-repeat="level in levels" 
 			ng-show="currentLevel == $index" 
-			ng-class="level.theme"
 			ng-style="{'background-image': 'url(images/bgs/' + getTheme(level.theme).menu + ')'}"> 
 			<ul class="songs">
 				<li>
 					<a class="page" ng-click="back()"><img src="images/left.png"></a>
 				</li>
 				<li>
-					<div class="song disabled">
+					<div class="song locked">
 						<img src="images/locked.png">
-						Locked
+						<h3>Locked</h3>
 					</div>
 				</li>
 				<li>
-					<a class="song" ng-click="playSong(level)">
+					<a class="song" ng-click="playSong(level)" ng-class="level.theme">
 						<img ng-src="images/{{level.icon}}">
-						{{level.name}}
+						<h3>{{level.name}}</h3>
 					</a>
 				</li>
 				<li>
-					<div class="song disabled">
+					<div class="song locked">
 						<img src="images/locked.png">
-						Locked
+						<h3>Locked</h3>
 					</div>
 				</li>
 				<li>

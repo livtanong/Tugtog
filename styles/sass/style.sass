@@ -1,5 +1,20 @@
 @import bourbon/bourbon
 
+$grey: #6a6868
+$blue: #34b0e0
+$green: #64c746
+$red: #db673a
+
+=song-button($color)
+	background-color: $color
+	border: 10px solid darken($color, 10%)
+	&:hover
+		background-color: lighten($color, 10%)
+		border: 10px solid $color
+	&:active
+		background-color: darken($color, 10%)
+		border: 10px solid darken($color, 20%)
+
 body 
 	font-family: "Action Man"
 
@@ -18,21 +33,35 @@ ul
 			margin-right: 0px
 
 .song
+	+transition(all 0.2s)
+	+box-sizing(border-box)
 	display: block
-	height: 128px
-	width: 128px
+	height: 210px
+	width: 210px
+	padding: 20px
 	color: white
+	border-radius: 8px
+	&.locked
+		+song-button($grey)
+	&.beach		
+		+song-button($blue)
+	&.bukid
+		+song-button($green)
+	&.barrio
+		+song-button($red)
+	img
+		display: block
+		margin: 0px auto
+	h3
+		margin-top: 16px
+		font-size: 24px
 
 .level-select
 	+box-sizing(border-box)
 	padding-top: 128px
 	width: 960px
 	height: 640px
-	&.beach .song
-		background-color: blue
-
-	&.bukid .song
-		background-color: green
+	
 
 canvas
 	position: static
