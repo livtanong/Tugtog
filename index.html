@@ -28,19 +28,24 @@
 	ng-keydown="keydown($event)"
 	ng-keyup="keyup($event)"
 	ng-init="count = 0">
-<!-- 	<audio id="tugtogaudio" src="audio/papaoutai.m4a" preload="auto">
-		<p>Your browser does not support the audio element.</p>
-	</audio> -->
-	<!-- <div>{{tester}}</div> -->
-	<!-- <game></game> -->
-	<section id="level-select" ng-show="current=='levels'">
-		<ul class="levels">
+	<section ng-show="current=='levels'">
+<!-- 		<ul class="levels">
 			<li ng-repeat="level in levels">
 				<a ng-click="playSong(level)">{{level.name}}</a>
 			</li>
-		</ul>
+		</ul> -->
+		{{currentLevel}}
+		<div ng-click="back()">back</div>
+		<div ng-click="next()">next</div>
+		<div 
+			class="level-select" 
+			ng-repeat="level in levels" 
+			ng-show="currentLevel == $index" 
+			style="background-image: url('images/bgs/{{getTheme(level.theme).menu}}')"> 
+			<a ng-click="playSong(level)">{{level.name}}</a>
+		</div>
 	</section>
-	<section id="game" ng-show="current=='game'">
+	<section ng-show="current=='game'">
 		<h2 class="score">{{game.score}}</h2>
 		<canvas 
 			id="tugtog" 

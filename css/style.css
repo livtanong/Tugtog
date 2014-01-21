@@ -21,3 +21,8 @@ section {
 	font-size: 48px;
 	color: white;	
 }
+
+.level-select {
+	width: 960px;
+	height: 640px;
+}

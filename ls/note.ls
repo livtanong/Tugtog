@@ -28,8 +28,8 @@ class PerspNote
 		if @isPlaying
 
 			ctx.globalAlpha = @opacity
-
-			note = sdata?.frames[themes[@theme].note]?.frame
+			theme = themes |> find ((x) ~> x.name is @theme)
+			note = sdata?.frames[theme.note]?.frame
 			ctx.drawImage(sprites, note.x, note.y, note.w, note.h, @x, @y - @h/2, @w, @h)
 
 			ctx.globalAlpha = 1
