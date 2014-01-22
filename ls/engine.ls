@@ -72,4 +72,9 @@ app.controller('Main', ($scope, $http, $q) ->
     $scope.current = 'game'
     $scope.game.level = new Level(level)
     $scope.game.start!
+
+  $scope.endSong = ->
+    $scope.current = 'levels'
+    $scope.game.level = {}
+    $scope.game.reset!
 )

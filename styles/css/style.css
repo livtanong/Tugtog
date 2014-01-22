@@ -101,3 +101,9 @@ section {
   font-size: 48px;
   color: white;
   margin: 0; }
+
+.end-screen {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0px;
+  color: white; }

@@ -1,7 +1,8 @@
 class Level
 	(@meta) ->
 		@audio = new buzz.sound(@meta.src)
-		@sheet = @meta.sheet
+		@sheetProto = @meta.sheet
+		@sheet = ^^@sheetProto
 		@bpm = @meta.bpm
 		@leadTime = @meta.leadTime
 		# @measure = new Beat(@meta.measure) #beats

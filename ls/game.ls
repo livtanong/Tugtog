@@ -2,16 +2,9 @@ class Game
 	(@canvas, @songs, @sdata) ->
 		@renderer = new Renderer(@canvas, @sdata)
 		@ctx = @canvas.getContext('2d')
-		@score = 0
+		@reset!
 
-	notifs: []
-	ui: []
-	chars: []
-	notesToRender: []
 	highlightedLane: ''
-	hasLevelStarted: false
-	haveNotesComeOut: false
-	state: 'mainmenu'
 
 	requestAnimationFrame =
 		window.requestAnimationFrame ||
@@ -20,13 +13,26 @@ class Game
 		window.msRequestAnimationFrame ||
 		window.oRequestAnimationFrame ||
 		(callback) -> setTimeout(callback, 1)
-	
 
+	reset: ->
+		@score = 0
+		@hasLevelStarted = false
+		@hasLevelEnded = false
+		@haveNotesComeOut = false
+		state.currBeat = 0
+		@notifs: []
+		@chars: []
+		@notesToRender: []
+
+	
 	start: ->
 		@hasLevelStarted = true
 		@level.audio.play!
 		@timeStartAudio = Date.now!
 		state.timeStartLevel = @level.audio.getTime! + @level.leadTime / 1000
+
+	end: ->
+		@hasLevelEnded = true
 
 	startLevel: ->
 		state.currBeat = 0
@@ -79,6 +85,9 @@ class Game
 
 			@cleanNotifs()
 			@cleanNotes()
+
+			if @level.audio.getPercent! >= 100
+				@end!
 
 	frame: ~>
 		@setDelta!

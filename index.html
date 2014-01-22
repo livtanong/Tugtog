@@ -70,5 +70,9 @@
 			height="640" >
 		</canvas>
 	</section>
+	<section ng-show="game.hasLevelEnded && (current == 'game')" class="end-screen">
+		ended! here is your score
+		<a ng-click="endSong()">Back to main menu</a>
+	</section>
 </body>
 </html>
