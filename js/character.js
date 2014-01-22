@@ -8,10 +8,11 @@ Character = (function(){
     this.y = y;
     this.up();
     this.pulse();
+    this.state = 'relaxed';
+    this.frame = '0.png';
   }
   prototype.pulseMag = 10;
   prototype.hitDur = 0.2;
-  prototype.isHitting = false;
   prototype.lastPulse = 0;
   prototype.down = function(){
     return this.state = "down";
@@ -20,30 +21,32 @@ Character = (function(){
     return this.state = "up";
   };
   prototype.hit = function(){
-    this.down();
-    return this.isHitting = true;
+    this.state = 'hitting';
+    this.animStart = state.now;
+    return this.animIndex = 0;
   };
   prototype.pulse = function(){
-    return this.headY = this.y + this.pulseMag;
+    return this.headY = this.y + this.pulseMag + 4;
   };
   prototype.animUpdate = function(){
     var speed;
-    if (this.isHitting && game.level.audio.getTime() > this.lastPulse + this.hitDur) {
-      this.up();
+    if (this.state === 'hitting' && this.animIndex < animations.hitting.length) {
+      this.frame = animations.hitting[this.animIndex];
+      console.log(this.frame);
+      this.animIndex += 1;
     }
-    speed = this.pulseMag / game.level.beatDur;
-    return this.headY = this.headY - speed * game.delta * 1000;
+    speed = this.pulseMag / 1000;
+    return this.headY = this.headY - speed * state.delta * 1000;
+  };
+  prototype.drumHit = function(){
+    this.state = 'hitting';
+    this.animStart = state.now;
+    return this.animIndex = 0;
   };
   prototype.draw = function(ctx, sdata){
-    var sUp, sDown, sHead, s, x;
-    sUp = sdata.frames['raised.png'].frame;
-    sDown = sdata.frames['lowered.png'].frame;
-    sHead = sdata.frames['head.png'].frame;
-    if (this.state === "down") {
-      s = sDown;
-    } else {
-      s = sUp;
-    }
+    var sHead, s, x;
+    sHead = sdata.frames['drummer/head.png'].frame;
+    s = sdata.frames["drummer/" + this.frame].frame;
     x = this.x - s.w / 2;
     ctx.drawImage(sprites, s.x, s.y - 10, s.w, s.h, x, this.y, s.w, s.h);
     return ctx.drawImage(sprites, sHead.x, sHead.y, sHead.w, sHead.h, x, this.headY, sHead.w, sHead.h);

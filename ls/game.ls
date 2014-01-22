@@ -81,7 +81,7 @@ class Game
 
 				[@level.updateNote(note) for note in @notesToRender]
 				[notif.animUpdate! for notif in @notifs]
-				# [lane.char.animUpdate! for , lane of @level.lanes]
+				[lane.char.animUpdate! for , lane of @level.lanes]
 
 			@cleanNotifs()
 			@cleanNotes()

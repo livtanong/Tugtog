@@ -93,6 +93,10 @@ Game = (function(){
           notif = ref$[i$];
           notif.animUpdate();
         }
+        for (i$ in ref$ = this.level.lanes) {
+          lane = ref$[i$];
+          lane.char.animUpdate();
+        }
       }
       this.cleanNotifs();
       this.cleanNotes();

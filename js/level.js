@@ -70,13 +70,12 @@ Level = (function(){
       note.x = note.lane.l1.findX(note.y);
       note.w = note.lane.l2.findX(note.y) - note.x;
       note.h = note.w;
-      note.opacity -= 0.6 * state.delta * 1000 / this.beatDur;
+      note.opacity -= 0.6 * state.delta * 1000 / this.beatDur(1);
       if (this.audio.getTime() > note.deadline + 1) {
         return note.isPlaying = false;
       }
     }
   };
-  prototype.draw = function(ctx, sdata){};
   prototype.init = function(level){
     return this.audio.load();
   };

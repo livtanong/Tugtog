@@ -68,31 +68,10 @@ class Level
 			note.x = note.lane.l1.findX(note.y)
 			note.w = note.lane.l2.findX(note.y) - note.x
 			note.h = note.w
-			note.opacity -= 0.6 * state.delta * 1000 / @beatDur
+			note.opacity -= 0.6 * state.delta * 1000 / @beatDur(1)
 
 			if @audio.getTime! > note.deadline + 1second
 				note.isPlaying = false
-
-	draw: (ctx, sdata) ->
-		# ctx.beginPath!
-		# ctx.moveTo(@bottomLeft.x, @bottomLeft.y)
-		# ctx.lineTo(@topLeft.x, @topLeft.y)
-		# ctx.lineTo(@topRight.x, @topRight.y)
-		# ctx.lineTo(@bottomRight.x, @bottomRight.y)
-		# ctx.lineTo(@bottomLeft.x, @bottomLeft.y)
-		# console.log @meta.theme, (themes |> filter((x) -> x.name is @meta.theme))
-		# console.log(@meta.theme, themes |> find((x) -> x.name is @meta.theme))
-
-		# theme = themes |> find ((x) ~> x.name is @meta.theme)
-		# bg = sdata.frames[theme.bg].frame
-		# ctx.globalAlpha = 1
-		# ctx.drawImage(sprites, bg.x, bg.y, bg.w, bg.h, 0, 0, bg.w, bg.h)
-
-		# ctx.strokeStyle = 'red'
-		# ctx.stroke!
-
-		# @ap.draw(ctx)
-		# @apRight.draw(ctx)
 
 	init: (level) ->
 		@audio.load()

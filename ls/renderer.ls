@@ -25,7 +25,6 @@ class Renderer
 			@clearCanvas()
 
 			if game.hasLevelStarted
-				game.level.draw(@ctx, @sdata)
 				
 				[lane.draw(@ctx) for , lane of game.level.lanes]
 				[lane.char.draw(@ctx, @sdata) for , lane of game.level.lanes]

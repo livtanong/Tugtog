@@ -15,6 +15,14 @@ themes =
 
 state = {}
 
+animations = 
+  "hitting":
+    '0.png'
+    '1.png'
+    '2.png'
+    '3.png'
+    '0.png'
+
 app = angular.module('tugtog', [])
 
 app.controller('Main', ($scope, $http, $q) ->

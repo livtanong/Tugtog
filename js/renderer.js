@@ -42,7 +42,6 @@ Renderer = (function(){
       var i$, ref$, lane, len$, note, notif;
       this$.clearCanvas();
       if (game.hasLevelStarted) {
-        game.level.draw(this$.ctx, this$.sdata);
         for (i$ in ref$ = game.level.lanes) {
           lane = ref$[i$];
           lane.draw(this$.ctx);
