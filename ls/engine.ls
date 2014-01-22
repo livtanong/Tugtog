@@ -17,11 +17,10 @@ state = {}
 
 animations = 
   "hitting":
-    '0.png'
     '1.png'
-    '2.png'
     '3.png'
-    '0.png'
+    '2.png'
+    '1.png'
 
 app = angular.module('tugtog', [])
 
@@ -80,6 +79,7 @@ app.controller('Main', ($scope, $http, $q) ->
     $scope.current = 'game'
     $scope.game.level = new Level(level)
     $scope.game.start!
+    state.done = false
 
   $scope.endSong = ->
     $scope.current = 'levels'

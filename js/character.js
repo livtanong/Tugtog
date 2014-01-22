@@ -8,14 +8,13 @@ Character = (function(){
     this.y = y;
     this.pulse();
     this.state = 'relaxed';
-    this.frame = '0.png';
+    this.frame = '1.png';
   }
   prototype.pulseMag = 10;
   prototype.hitDur = 0.2;
   prototype.lastPulse = 0;
   prototype.hit = function(){
     this.state = 'hitting';
-    this.animStart = state.now;
     this.animIndex = 0;
     return this.animTime = 0;
   };

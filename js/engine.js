@@ -20,7 +20,7 @@ themes = [
 ];
 state = {};
 animations = {
-  "hitting": ['0.png', '1.png', '2.png', '3.png', '0.png']
+  "hitting": ['1.png', '3.png', '2.png', '1.png']
 };
 app = angular.module('tugtog', []);
 app.controller('Main', function($scope, $http, $q){
@@ -88,7 +88,8 @@ app.controller('Main', function($scope, $http, $q){
   $scope.playSong = function(level){
     $scope.current = 'game';
     $scope.game.level = new Level(level);
-    return $scope.game.start();
+    $scope.game.start();
+    return state.done = false;
   };
   return $scope.endSong = function(){
     $scope.current = 'levels';

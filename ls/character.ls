@@ -2,7 +2,7 @@ class Character
 	(@x, @y) ->
 		@pulse!
 		@state = 'relaxed'
-		@frame = '0.png'
+		@frame = '1.png'
 
 	pulseMag: 10px
 	hitDur: 0.2s
@@ -10,7 +10,6 @@ class Character
 
 	hit: ->
 		@state = 'hitting'
-		@animStart = state.now
 		@animIndex = 0
 		@animTime = 0
 

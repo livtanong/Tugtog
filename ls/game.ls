@@ -62,7 +62,12 @@ class Game
 
 			# level is underway
 			if @haveNotesComeOut
-
+				# n ms before a beat
+				if @level.audio.getTime! >= @level.beatToTime(state.currBeat) - 4/24
+					for note in @level.sheet |> head
+						lane = @level.lanes[note]
+						# if lane
+						# 	lane.char.hit!
 				# this is a beat.
 				if @level.audio.getTime! >= @level.beatToTime(state.currBeat)
 					# console.log @currBeat.toTime!, (@now - game.timeStartLevel)/60, @level.audio.getTime!
@@ -72,8 +77,8 @@ class Game
 					for note in notes
 						lane = @level.lanes[note]
 						if lane
-							lane.char.hit!
 							@notesToRender.push(@level.spawnNote(lane))
+							lane.char.hit!
 					[note.pulse! for note in @notesToRender]
 					[lane.char.pulse! for , lane of @level.lanes]
 
