@@ -72,6 +72,7 @@
 	</section>
 	<section ng-show="game.hasLevelEnded && (current == 'game')" class="end-screen">
 		ended! here is your score
+		<h2 class="score">{{game.score}}</h2>
 		<a ng-click="endSong()">Back to main menu</a>
 	</section>
 </body>

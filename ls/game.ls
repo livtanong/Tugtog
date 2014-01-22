@@ -20,9 +20,9 @@ class Game
 		@hasLevelEnded = false
 		@haveNotesComeOut = false
 		state.currBeat = 0
-		@notifs: []
-		@chars: []
-		@notesToRender: []
+		@notifs = []
+		@chars = []
+		@notesToRender = []
 
 	
 	start: ->
