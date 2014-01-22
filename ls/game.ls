@@ -63,9 +63,9 @@ class Game
 			# level is underway
 			if @haveNotesComeOut
 				# n ms before a beat
-				if @level.audio.getTime! >= @level.beatToTime(state.currBeat) - 4/24
-					for note in @level.sheet |> head
-						lane = @level.lanes[note]
+				# if @level.audio.getTime! >= @level.beatToTime(state.currBeat) - 4/24
+				# 	for note in @level.sheet |> head
+				# 		lane = @level.lanes[note]
 						# if lane
 						# 	lane.char.hit!
 				# this is a beat.

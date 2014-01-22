@@ -58,19 +58,12 @@ Game = (function(){
     return this.score += settings.score(note.grade);
   };
   prototype.update = function(){
-    var i$, ref$, len$, note, lane, notes, notif;
+    var notes, ref$, i$, len$, note, lane, notif;
     if (this.hasLevelStarted) {
       if (this.level.audio.getTime() >= state.timeStartLevel && !this.haveNotesComeOut) {
         this.startLevel();
       }
       if (this.haveNotesComeOut) {
-        if (this.level.audio.getTime() >= this.level.beatToTime(state.currBeat) - 4 / 24) {
-          for (i$ = 0, len$ = (ref$ = head(
-          this.level.sheet)).length; i$ < len$; ++i$) {
-            note = ref$[i$];
-            lane = this.level.lanes[note];
-          }
-        }
         if (this.level.audio.getTime() >= this.level.beatToTime(state.currBeat)) {
           notes = (ref$ = this.level.sheet.shift()) != null
             ? ref$
