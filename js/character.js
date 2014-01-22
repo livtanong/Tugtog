@@ -26,11 +26,7 @@ Character = (function(){
     speed = this.pulseMag / 1000;
     if (this.state === 'hitting' && this.animIndex < animations.hitting.length) {
       this.frame = animations.hitting[this.animIndex];
-      this.animTime += state.delta;
-      if (this.animTime >= 1 / 24) {
-        this.animIndex += 1;
-        this.animTime = 0;
-      }
+      this.animIndex += 1;
     }
     if (!state.isDone) {
       return this.headY = this.headY - speed * state.delta * 1000;

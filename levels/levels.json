@@ -2,7 +2,7 @@
 	"name": "Alama", 
 	"src": "/audio/Alama.mp3", 
 	"bpm": 110, 
-	"leadTime": 550,
+	"leadTime": 546,
 	"skins": "tausug",	
 	"measure": 4,
 	"sheet": [
