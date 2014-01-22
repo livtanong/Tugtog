@@ -49,26 +49,24 @@ app.controller('Main', ($scope, $http, $q) ->
       $scope.currentLevel -= 1
 
   $scope.keydown = (e) ~>
-    if $scope.game.level
-      lane = $scope.game.level.lanes[settings.keys[e.which]]
-      if lane
-        lane.opacity = 0.8
-        # console.log($scope.game.notesToRender |> filter((note) -> note.lane.key is lane.key))
+    lane = $scope.game.level?.lanes[settings.keys[e.which]]
+    if lane
+      lane.opacity = 0.8
+      # console.log($scope.game.notesToRender |> filter((note) -> note.lane.key is lane.key))
 
-        candidate = $scope.game.notesToRender
-          |> filter (.lane.key is lane.key)
-          |> map ((note) -> $scope.game.level.gradeNote(note); note)
-          |> sort-by (-> Math.abs(it.diff))
-          |> head
+      candidate = $scope.game.notesToRender
+        |> filter (.lane.key is lane.key)
+        |> map ((note) -> $scope.game.level.gradeNote(note); note)
+        |> sort-by (-> Math.abs(it.diff))
+        |> head
 
-        if candidate?.isActive and $scope.game.level.gradeNote(candidate) isnt "ignored"
-          $scope.game.triggerNote(candidate)
+      if candidate?.isActive and $scope.game.level.gradeNote(candidate) isnt "ignored"
+        $scope.game.triggerNote(candidate)
 
   $scope.keyup = (e) ~>
-    if $scope.game.level
-      lane = $scope.game.level.lanes[settings.keys[e.which]]
-      if lane
-        lane.opacity = 0
+    lane = $scope.game.level?.lanes[settings.keys[e.which]]
+    if lane
+      lane.opacity = 0
 
   $scope.playSong = (level) ->
     $scope.current = 'game'

@@ -40,9 +40,7 @@ class Game
 
 	triggerNote: (note) ->
 		note.isActive = false
-		# note.color = "green"
-		@notifs.push(new Notif(@, "#{@grade}!, #{deci2(@diff)} s"))
-		console.log @notifs
+		@notifs.push(new Notif(note, "#{note.grade}!, #{deci2(note.diff)} s"))
 
 		@score += settings.score(note.grade)
 

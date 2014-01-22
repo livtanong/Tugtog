@@ -17,7 +17,6 @@ class Notif
 		@y -= @speed * state.delta
 		@speed -= 1
 
-		console.log @age
 		@
 
 	reset: ->
@@ -30,5 +29,5 @@ class Notif
 		ctx.fillStyle = "white"
 		ctx.textAlign = "left"
 		ctx.textBaseline = "top"
-		ctx.font = "24px 'Helvetica Neue'"
+		ctx.font = "24px 'Action Man'"
 		ctx.fillText(@message, @x, @y - 20)
