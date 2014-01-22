@@ -101,7 +101,8 @@ Game = (function(){
       this.cleanNotifs();
       this.cleanNotes();
       if (this.level.audio.getPercent() >= 100) {
-        return this.end();
+        this.end();
+        return state.done = true;
       }
     }
   };

@@ -88,6 +88,7 @@ class Game
 
 			if @level.audio.getPercent! >= 100
 				@end!
+				state.done = true
 
 	frame: ~>
 		@setDelta!

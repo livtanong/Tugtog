@@ -1,6 +1,5 @@
 class Character
 	(@x, @y) ->
-		@up!
 		@pulse!
 		@state = 'relaxed'
 		@frame = '0.png'
@@ -19,14 +18,16 @@ class Character
 		@headY = @y + @pulseMag + 4
 
 	animUpdate: ->
+		speed = @pulseMag/1000
 		if @state is 'hitting' and @animIndex < animations.hitting.length
 			@frame = animations.hitting[@animIndex]
 			@animTime += state.delta
 			if @animTime >= 1/24
 				@animIndex += 1
 				@animTime = 0
-		speed = @pulseMag/1000
-		@headY = @headY - speed * state.delta * 1000
+
+		if !state.done
+			@headY = @headY - speed * state.delta * 1000
 	
 	draw: (ctx, sdata) ->
 		sHead = sdata.frames['drummer/head.png'].frame

@@ -6,7 +6,6 @@ Character = (function(){
   function Character(x, y){
     this.x = x;
     this.y = y;
-    this.up();
     this.pulse();
     this.state = 'relaxed';
     this.frame = '0.png';
@@ -25,6 +24,7 @@ Character = (function(){
   };
   prototype.animUpdate = function(){
     var speed;
+    speed = this.pulseMag / 1000;
     if (this.state === 'hitting' && this.animIndex < animations.hitting.length) {
       this.frame = animations.hitting[this.animIndex];
       this.animTime += state.delta;
@@ -33,8 +33,9 @@ Character = (function(){
         this.animTime = 0;
       }
     }
-    speed = this.pulseMag / 1000;
-    return this.headY = this.headY - speed * state.delta * 1000;
+    if (!state.done) {
+      return this.headY = this.headY - speed * state.delta * 1000;
+    }
   };
   prototype.draw = function(ctx, sdata){
     var sHead, s, x;
