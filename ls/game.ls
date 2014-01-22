@@ -41,10 +41,10 @@ class Game
 	triggerNote: (note) ->
 		note.isActive = false
 		# note.color = "green"
-		new Notif(@, "#{@grade}!, #{deci2(@diff)} s")
+		@notifs.push(new Notif(@, "#{@grade}!, #{deci2(@diff)} s"))
+		console.log @notifs
 
 		@score += settings.score(note.grade)
-		console.log @score
 
 	update: ~>
 		# menu stuff

@@ -8,15 +8,16 @@ class Notif
 		@animNotifs = []
 		@age = 0 #seconds
 		@speed = 80
-		# game.notifs.push(@)
 
 	percentAge: ->
 		(@lifespan - @age) / @lifespan
 
 	animUpdate: ->
-		@age += game.delta
-		@y -= @speed * game.delta
+		@age += state.delta
+		@y -= @speed * state.delta
 		@speed -= 1
+
+		console.log @age
 		@
 
 	reset: ->
