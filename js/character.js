@@ -14,16 +14,11 @@ Character = (function(){
   prototype.pulseMag = 10;
   prototype.hitDur = 0.2;
   prototype.lastPulse = 0;
-  prototype.down = function(){
-    return this.state = "down";
-  };
-  prototype.up = function(){
-    return this.state = "up";
-  };
   prototype.hit = function(){
     this.state = 'hitting';
     this.animStart = state.now;
-    return this.animIndex = 0;
+    this.animIndex = 0;
+    return this.animTime = 0;
   };
   prototype.pulse = function(){
     return this.headY = this.y + this.pulseMag + 4;
@@ -32,16 +27,14 @@ Character = (function(){
     var speed;
     if (this.state === 'hitting' && this.animIndex < animations.hitting.length) {
       this.frame = animations.hitting[this.animIndex];
-      console.log(this.frame);
-      this.animIndex += 1;
+      this.animTime += state.delta;
+      if (this.animTime >= 1 / 24) {
+        this.animIndex += 1;
+        this.animTime = 0;
+      }
     }
     speed = this.pulseMag / 1000;
     return this.headY = this.headY - speed * state.delta * 1000;
-  };
-  prototype.drumHit = function(){
-    this.state = 'hitting';
-    this.animStart = state.now;
-    return this.animIndex = 0;
   };
   prototype.draw = function(ctx, sdata){
     var sHead, s, x;
