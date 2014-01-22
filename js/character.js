@@ -32,7 +32,7 @@ Character = (function(){
         this.animTime = 0;
       }
     }
-    if (!state.done) {
+    if (!state.isDone) {
       return this.headY = this.headY - speed * state.delta * 1000;
     }
   };

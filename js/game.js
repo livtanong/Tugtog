@@ -3,10 +3,11 @@ var Game;
 Game = (function(){
   Game.displayName = 'Game';
   var requestAnimationFrame, prototype = Game.prototype, constructor = Game;
-  function Game(canvas, songs, sdata){
+  function Game(canvas, songs, sdata, scope){
     this.canvas = canvas;
     this.songs = songs;
     this.sdata = sdata;
+    this.scope = scope;
     this.frame = bind$(this, 'frame', prototype);
     this.update = bind$(this, 'update', prototype);
     this.renderer = new Renderer(this.canvas, this.sdata);
@@ -109,7 +110,8 @@ Game = (function(){
       this.cleanNotes();
       if (this.level.audio.getPercent() >= 100) {
         this.end();
-        return state.done = true;
+        state.isDone = true;
+        return this.scope.$apply();
       }
     }
   };

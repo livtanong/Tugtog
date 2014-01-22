@@ -25,7 +25,7 @@ class Character
 				@animIndex += 1
 				@animTime = 0
 
-		if !state.done
+		if !state.isDone
 			@headY = @headY - speed * state.delta * 1000
 	
 	draw: (ctx, sdata) ->

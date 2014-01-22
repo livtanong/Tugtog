@@ -1,5 +1,5 @@
 class Game
-	(@canvas, @songs, @sdata) ->
+	(@canvas, @songs, @sdata, @scope) ->
 		@renderer = new Renderer(@canvas, @sdata)
 		@ctx = @canvas.getContext('2d')
 		@reset!
@@ -93,7 +93,8 @@ class Game
 
 			if @level.audio.getPercent! >= 100
 				@end!
-				state.done = true
+				state.isDone = true
+				@scope.$apply!
 
 	frame: ~>
 		@setDelta!

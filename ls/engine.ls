@@ -39,8 +39,7 @@ app.controller('Main', ($scope, $http, $q) ->
 
     canvas = $('#tugtog')[0]
 
-    $scope.game = new Game(canvas, $scope.levels, $scope.sprites)
-    $scope.game.init!
+    $scope.game = new Game(canvas, $scope.levels, $scope.sprites, $scope)
   )
 
   $scope.getTheme = (theme) ->
@@ -76,10 +75,11 @@ app.controller('Main', ($scope, $http, $q) ->
       lane.opacity = 0
 
   $scope.playSong = (level) ->
+    $scope.game.init!
     $scope.current = 'game'
     $scope.game.level = new Level(level)
     $scope.game.start!
-    state.done = false
+    state.isDone = false
 
   $scope.endSong = ->
     $scope.current = 'levels'

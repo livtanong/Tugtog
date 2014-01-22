@@ -37,8 +37,7 @@ app.controller('Main', function($scope, $http, $q){
     $scope.sprites = values[0].data;
     $scope.levels = values[1].data;
     canvas = $('#tugtog')[0];
-    $scope.game = new Game(canvas, $scope.levels, $scope.sprites);
-    return $scope.game.init();
+    return $scope.game = new Game(canvas, $scope.levels, $scope.sprites, $scope);
   });
   $scope.getTheme = function(theme){
     return find(function(x){
@@ -86,10 +85,11 @@ app.controller('Main', function($scope, $http, $q){
     }
   };
   $scope.playSong = function(level){
+    $scope.game.init();
     $scope.current = 'game';
     $scope.game.level = new Level(level);
     $scope.game.start();
-    return state.done = false;
+    return state.isDone = false;
   };
   return $scope.endSong = function(){
     $scope.current = 'levels';
