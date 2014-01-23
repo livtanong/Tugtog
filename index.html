@@ -36,7 +36,7 @@
 			ng-style="{'background-image': 'url(images/bgs/' + getTheme(level.theme).menu + ')'}"> 
 			<ul class="songs">
 				<li>
-					<button class="page" ng-click="back()"><img src="images/left.png"></button>
+					<button class="page back" ng-click="back()" ng-class="{'hidden': currentLevel <= 0}"><img src="images/left.png"></button>
 				</li>
 				<li>
 					<div class="song locked">
@@ -57,7 +57,7 @@
 					</div>
 				</li>
 				<li>
-					<button class="page" ng-click="next()"><img src="images/right.png"></button>
+					<button class="page next" ng-click="next()" ng-class="{'hidden': currentLevel >= levels.length - 1}"><img src="images/right.png"></button>
 				</li>
 			</ul>
 		</div>

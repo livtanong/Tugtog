@@ -84,8 +84,15 @@ ul
 	height: 640px
 	
 .page
+	+transition(all 0.2s)
 	display: block
 	margin-top: 84px
+	opacity: 0.8
+	&:hover
+		opacity: 1
+
+.hidden
+	visibility: hidden
 
 canvas
 	position: static
