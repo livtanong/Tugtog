@@ -44,9 +44,9 @@ class Game
 	cleanNotes: ->
 		@notesToRender = @notesToRender |> filter (.isPlaying)
 
-	triggerNote: (note) ->
+	triggerNote: (note, lane) ->
 		note.isActive = false
-		@notifs.push(new Notif(note, "#{note.grade}!, #{deci2(note.diff)} s"))
+		@notifs.push(new Notif(lane.char, "#{note.grade}!, #{deci2(note.diff)} s"))
 
 		@score += settings.score(note.grade)
 

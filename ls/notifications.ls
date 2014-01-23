@@ -8,16 +8,24 @@ class Notif
 		@animNotifs = []
 		@age = 0 #seconds
 		@speed = 80
+		@scale = 0
 
 	percentAge: ->
 		(@lifespan - @age) / @lifespan
 
 	animUpdate: ->
 		@age += state.delta
-		@y -= @speed * state.delta
-		@speed -= 1
+		maxScale = 1.1
+		critAge = 0.5 - Math.asin(1 / maxScale) / (2 * Math.PI)
+		if @age <= critAge
+			@scale = 1.1 * Math.sin(@age * 2 * Math.PI)
+		else
+			@scale = 1
+		# @scale = @age
+		# @y -= @speed * state.delta
+		# @speed -= 1
 
-		@
+		# @
 
 	reset: ->
 		@x = @target.x
@@ -27,7 +35,12 @@ class Notif
 
 	draw: (ctx) ->
 		ctx.fillStyle = "white"
-		ctx.textAlign = "left"
+		h = 128 * @scale
+		w = 128 * @scale
+		ctx.fillRect(@x - w/2, @y - h/2, w, h)
+
+		ctx.fillStyle = "brown"
+		ctx.textAlign = "center"
 		ctx.textBaseline = "top"
 		ctx.font = "24px 'Action Man'"
 		ctx.fillText(@message, @x, @y - 20)

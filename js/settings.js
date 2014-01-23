@@ -22,10 +22,10 @@ settings = {
     switch (false) {
     case !(-0.100 <= t && t <= 0.100):
       return "great";
-    case !(0.100 < t && t <= 0.500):
+    case !((0.100 < t && t <= 0.200) || (-0.100 > t && t >= -0.200)):
       return "good";
-    case !(-0.100 > t && t >= -0.500):
-      return "good";
+    case !((-0.200 > t && t >= -0.500) || (0.200 < t && t <= 0.500)):
+      return "bad";
     case !(t > 0.500 || t < -0.500):
       return "ignored";
     }

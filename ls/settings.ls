@@ -21,10 +21,10 @@ settings =
 	grade: (t) ->
 		when -0.100 <= t <= 0.100
 			"great"
-		when 0.100 < t <= 0.500
+		when 0.100 < t <= 0.200 or -0.100 > t >= -0.200
 			"good"
-		when -0.100 > t >= -0.500
-			"good"
+		when -0.200 > t >= -0.500 or 0.200 < t <= 0.500
+			"bad"
 		when t > 0.500 or t < -0.500
 			"ignored"
 

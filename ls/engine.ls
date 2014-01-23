@@ -67,7 +67,7 @@ app.controller('Main', ($scope, $http, $q) ->
         |> head
 
       if candidate?.isActive and $scope.game.level.gradeNote(candidate) isnt "ignored"
-        $scope.game.triggerNote(candidate)
+        $scope.game.triggerNote(candidate, lane)
 
   $scope.keyup = (e) ~>
     lane = $scope.game.level?.lanes[settings.keys[e.which]]

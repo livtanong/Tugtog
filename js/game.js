@@ -52,9 +52,9 @@ Game = (function(){
     })(
     this.notesToRender);
   };
-  prototype.triggerNote = function(note){
+  prototype.triggerNote = function(note, lane){
     note.isActive = false;
-    this.notifs.push(new Notif(note, note.grade + "!, " + deci2(note.diff) + " s"));
+    this.notifs.push(new Notif(lane.char, note.grade + "!, " + deci2(note.diff) + " s"));
     return this.score += settings.score(note.grade);
   };
   prototype.update = function(){

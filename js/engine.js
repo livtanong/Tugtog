@@ -73,7 +73,7 @@ app.controller('Main', function($scope, $http, $q){
       })(
       $scope.game.notesToRender))));
       if ((candidate != null && candidate.isActive) && $scope.game.level.gradeNote(candidate) !== "ignored") {
-        return $scope.game.triggerNote(candidate);
+        return $scope.game.triggerNote(candidate, lane);
       }
     }
   };

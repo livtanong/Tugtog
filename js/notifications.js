@@ -14,15 +14,21 @@ Notif = (function(){
     this.animNotifs = [];
     this.age = 0;
     this.speed = 80;
+    this.scale = 0;
   }
   prototype.percentAge = function(){
     return (this.lifespan - this.age) / this.lifespan;
   };
   prototype.animUpdate = function(){
+    var maxScale, critAge;
     this.age += state.delta;
-    this.y -= this.speed * state.delta;
-    this.speed -= 1;
-    return this;
+    maxScale = 1.1;
+    critAge = 0.5 - Math.asin(1 / maxScale) / (2 * Math.PI);
+    if (this.age <= critAge) {
+      return this.scale = 1.1 * Math.sin(this.age * 2 * Math.PI);
+    } else {
+      return this.scale = 1;
+    }
   };
   prototype.reset = function(){
     this.x = this.target.x;
@@ -31,8 +37,13 @@ Notif = (function(){
     return this.speed = 40;
   };
   prototype.draw = function(ctx){
+    var h, w;
     ctx.fillStyle = "white";
-    ctx.textAlign = "left";
+    h = 128 * this.scale;
+    w = 128 * this.scale;
+    ctx.fillRect(this.x - w / 2, this.y - h / 2, w, h);
+    ctx.fillStyle = "brown";
+    ctx.textAlign = "center";
     ctx.textBaseline = "top";
     ctx.font = "24px 'Action Man'";
     return ctx.fillText(this.message, this.x, this.y - 20);
