@@ -51,37 +51,37 @@ ul {
   .song.locked {
     background-color: #6a6868;
     border: 10px solid #504f4f; }
-    .song.locked:hover {
+    .song.locked:not(.locked):hover {
       background-color: #848181;
       border: 10px solid #6a6868; }
-    .song.locked:active {
+    .song.locked:not(.locked):active {
       background-color: #504f4f;
       border: 10px solid #373535; }
   .song.beach {
     background-color: #34b0e0;
     border: 10px solid #1e95c3; }
-    .song.beach:hover {
+    .song.beach:not(.locked):hover {
       background-color: #60c1e7;
       border: 10px solid #34b0e0; }
-    .song.beach:active {
+    .song.beach:not(.locked):active {
       background-color: #1e95c3;
       border: 10px solid #177397; }
   .song.bukid {
     background-color: #64c746;
     border: 10px solid #4ea733; }
-    .song.bukid:hover {
+    .song.bukid:not(.locked):hover {
       background-color: #85d36d;
       border: 10px solid #64c746; }
-    .song.bukid:active {
+    .song.bukid:not(.locked):active {
       background-color: #4ea733;
       border: 10px solid #3c8027; }
   .song.barrio {
     background-color: #db673a;
     border: 10px solid #bf4f23; }
-    .song.barrio:hover {
+    .song.barrio:not(.locked):hover {
       background-color: #e38865;
       border: 10px solid #db673a; }
-    .song.barrio:active {
+    .song.barrio:not(.locked):active {
       background-color: #bf4f23;
       border: 10px solid #943d1b; }
   .song img {

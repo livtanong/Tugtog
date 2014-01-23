@@ -27,12 +27,13 @@ button
 =song-button($color)
 	background-color: $color
 	border: 10px solid darken($color, 10%)
-	&:hover
-		background-color: lighten($color, 10%)
-		border: 10px solid $color
-	&:active
-		background-color: darken($color, 10%)
-		border: 10px solid darken($color, 20%)
+	&:not(.locked)
+		&:hover
+			background-color: lighten($color, 10%)
+			border: 10px solid $color
+		&:active
+			background-color: darken($color, 10%)
+			border: 10px solid darken($color, 20%)
 
 body 
 	font-family: "Action Man"
