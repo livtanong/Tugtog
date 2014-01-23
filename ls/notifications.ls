@@ -9,6 +9,7 @@ class Notif
 		@age = 0 #seconds
 		@speed = 80
 		@scale = 0
+		@opacity = 1
 
 	percentAge: ->
 		(@lifespan - @age) / @lifespan
@@ -19,8 +20,10 @@ class Notif
 		critAge = 0.5 - Math.asin(1 / maxScale) / (2 * Math.PI)
 		if @age <= critAge
 			@scale = 1.1 * Math.sin(@age * 2 * Math.PI)
+			@opacity = 1
 		else
 			@scale = 1
+			@opacity = (@lifespan - @age) / critAge
 		# @scale = @age
 		# @y -= @speed * state.delta
 		# @speed -= 1
@@ -34,6 +37,7 @@ class Notif
 		@speed = 40
 
 	draw: (ctx) ->
+		ctx.globalAlpha = @opacity
 		ctx.fillStyle = "white"
 		h = 128 * @scale
 		w = 128 * @scale
@@ -44,3 +48,4 @@ class Notif
 		ctx.textBaseline = "top"
 		ctx.font = "24px 'Action Man'"
 		ctx.fillText(@message, @x, @y - 20)
+		ctx.globalAlpha = 1

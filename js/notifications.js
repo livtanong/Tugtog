@@ -15,6 +15,7 @@ Notif = (function(){
     this.age = 0;
     this.speed = 80;
     this.scale = 0;
+    this.opacity = 1;
   }
   prototype.percentAge = function(){
     return (this.lifespan - this.age) / this.lifespan;
@@ -25,9 +26,11 @@ Notif = (function(){
     maxScale = 1.1;
     critAge = 0.5 - Math.asin(1 / maxScale) / (2 * Math.PI);
     if (this.age <= critAge) {
-      return this.scale = 1.1 * Math.sin(this.age * 2 * Math.PI);
+      this.scale = 1.1 * Math.sin(this.age * 2 * Math.PI);
+      return this.opacity = 1;
     } else {
-      return this.scale = 1;
+      this.scale = 1;
+      return this.opacity = (this.lifespan - this.age) / critAge;
     }
   };
   prototype.reset = function(){
@@ -38,6 +41,7 @@ Notif = (function(){
   };
   prototype.draw = function(ctx){
     var h, w;
+    ctx.globalAlpha = this.opacity;
     ctx.fillStyle = "white";
     h = 128 * this.scale;
     w = 128 * this.scale;
@@ -46,7 +50,8 @@ Notif = (function(){
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
     ctx.font = "24px 'Action Man'";
-    return ctx.fillText(this.message, this.x, this.y - 20);
+    ctx.fillText(this.message, this.x, this.y - 20);
+    return ctx.globalAlpha = 1;
   };
   return Notif;
 }());
