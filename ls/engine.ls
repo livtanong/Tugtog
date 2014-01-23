@@ -25,7 +25,7 @@ animations =
 app = angular.module('tugtog', [])
 
 app.controller('Main', ($scope, $http, $q) ->
-  $scope.current = 'levels'
+  $scope.current = 'title'
   $scope.currentLevel = 0
   $scope.game = {}
   $scope.themes = themes
@@ -55,19 +55,23 @@ app.controller('Main', ($scope, $http, $q) ->
       $scope.currentLevel -= 1
 
   $scope.keydown = (e) ~>
-    lane = $scope.game.level?.lanes[settings.keys[e.which]]
-    if lane
-      lane.opacity = 0.8
-      # console.log($scope.game.notesToRender |> filter((note) -> note.lane.key is lane.key))
+    if $scope.current is 'title'
+      if e.which is 32
+        $scope.current = 'levels'
+    else if $scope.current is 'game'
+      lane = $scope.game.level?.lanes[settings.keys[e.which]]
+      if lane
+        lane.opacity = 0.8
+        # console.log($scope.game.notesToRender |> filter((note) -> note.lane.key is lane.key))
 
-      candidate = $scope.game.notesToRender
-        |> filter (.lane.key is lane.key)
-        |> map ((note) -> $scope.game.level.gradeNote(note); note)
-        |> sort-by (-> Math.abs(it.diff))
-        |> head
+        candidate = $scope.game.notesToRender
+          |> filter (.lane.key is lane.key)
+          |> map ((note) -> $scope.game.level.gradeNote(note); note)
+          |> sort-by (-> Math.abs(it.diff))
+          |> head
 
-      if candidate?.isActive and $scope.game.level.gradeNote(candidate) isnt "ignored"
-        $scope.game.triggerNote(candidate, lane)
+        if candidate?.isActive and $scope.game.level.gradeNote(candidate) isnt "ignored"
+          $scope.game.triggerNote(candidate, lane)
 
   $scope.keyup = (e) ~>
     lane = $scope.game.level?.lanes[settings.keys[e.which]]
@@ -82,7 +86,7 @@ app.controller('Main', ($scope, $http, $q) ->
     state.isDone = false
 
   $scope.endSong = ->
-    $scope.current = 'levels'
+    $scope.current = 'title'
     $scope.game.level = {}
     $scope.game.reset!
 )

@@ -27,6 +27,7 @@ button
 =song-button($color)
 	background-color: $color
 	border: 10px solid darken($color, 10%)
+	color: white
 	&:not(.locked)
 		&:hover
 			background-color: lighten($color, 10%)
@@ -34,7 +35,6 @@ button
 		&:active
 			background-color: darken($color, 10%)
 			border: 10px solid darken($color, 20%)
-
 body 
 	font-family: "Action Man"
 	margin: 0
@@ -83,6 +83,18 @@ ul
 	padding-top: 128px
 	width: 960px
 	height: 640px
+
+.title
+	+box-sizing(border-box)
+	text-align: center
+	padding-top: 360px
+	h2
+		display: inline-block
+		background-color: rgba(black, 0.6)
+		color: white
+		padding: 20px
+		border-radius: 10px
+		margin: 0
 	
 .page
 	+transition(all 0.2s)
@@ -101,6 +113,7 @@ canvas
 section
 	width: 960px
 	height: 640px
+	position: relative
 
 #game
 	position: relative
@@ -115,8 +128,22 @@ section
 .overlay
 	position: absolute
 
+.footer
+	position: absolute
+	bottom: 0px
+	left: 0px
+	right: 0px
+	text-align: right
+	padding: 20px
+
 .end-screen
 	position: absolute
 	background-color: rgba(black, 0.8)
 	top: 0px
 	color: white
+
+.btn
+	padding: 10px
+	border-radius: 10px
+	font-size: 18px
+	+song-button($blue)

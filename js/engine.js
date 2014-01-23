@@ -25,7 +25,7 @@ animations = {
 app = angular.module('tugtog', []);
 app.controller('Main', function($scope, $http, $q){
   var this$ = this;
-  $scope.current = 'levels';
+  $scope.current = 'title';
   $scope.currentLevel = 0;
   $scope.game = {};
   $scope.themes = themes;
@@ -57,23 +57,29 @@ app.controller('Main', function($scope, $http, $q){
   };
   $scope.keydown = function(e){
     var lane, ref$, candidate;
-    lane = (ref$ = $scope.game.level) != null ? ref$.lanes[settings.keys[e.which]] : void 8;
-    if (lane) {
-      lane.opacity = 0.8;
-      candidate = head(
-      sortBy(function(it){
-        return Math.abs(it.diff);
-      })(
-      map(function(note){
-        $scope.game.level.gradeNote(note);
-        return note;
-      })(
-      filter(function(it){
-        return it.lane.key === lane.key;
-      })(
-      $scope.game.notesToRender))));
-      if ((candidate != null && candidate.isActive) && $scope.game.level.gradeNote(candidate) !== "ignored") {
-        return $scope.game.triggerNote(candidate, lane);
+    if ($scope.current === 'title') {
+      if (e.which === 32) {
+        return $scope.current = 'levels';
+      }
+    } else if ($scope.current === 'game') {
+      lane = (ref$ = $scope.game.level) != null ? ref$.lanes[settings.keys[e.which]] : void 8;
+      if (lane) {
+        lane.opacity = 0.8;
+        candidate = head(
+        sortBy(function(it){
+          return Math.abs(it.diff);
+        })(
+        map(function(note){
+          $scope.game.level.gradeNote(note);
+          return note;
+        })(
+        filter(function(it){
+          return it.lane.key === lane.key;
+        })(
+        $scope.game.notesToRender))));
+        if ((candidate != null && candidate.isActive) && $scope.game.level.gradeNote(candidate) !== "ignored") {
+          return $scope.game.triggerNote(candidate, lane);
+        }
       }
     }
   };
@@ -92,7 +98,7 @@ app.controller('Main', function($scope, $http, $q){
     return state.isDone = false;
   };
   return $scope.endSong = function(){
-    $scope.current = 'levels';
+    $scope.current = 'title';
     $scope.game.level = {};
     return $scope.game.reset();
   };

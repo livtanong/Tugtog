@@ -28,6 +28,14 @@
 	ng-keydown="keydown($event)"
 	ng-keyup="keyup($event)"
 	ng-init="count = 0">
+	<section 
+		class="title"
+		ng-show="current == 'title'"
+		ng-style="{'background-image': 'url(images/bgs/title.png)'}">
+		<button ng-click="current = 'levels'">
+			<h2 class="press-space">Press Space</h2>
+		</button>
+	</section>
 	<section ng-show="current=='levels'">
 		<div 
 			class="level-select" 
@@ -61,6 +69,11 @@
 				</li>
 			</ul>
 		</div>
+		<div class="footer">
+			<button class="btn" ng-click="current = 'title'">
+				Back
+			</button>
+		</div>
 	</section>
 	<section ng-show="current=='game'" ng-style="{'background-image': 'url(images/bgs/' + themes[currentLevel].bg + ')'}">
 		<div class="overlay">
@@ -76,7 +89,7 @@
 		<div class="score">
 			<h1>End!</h1>
 			<h2 class="score">{{game.score}}</h2>
-			<button ng-click="endSong()">Back to main menu</button>
+			<button class="btn" ng-click="endSong()">Back to Title screen</button>
 		</div>
 	</section>
 </body>

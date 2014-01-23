@@ -50,7 +50,8 @@ ul {
   border-radius: 8px; }
   .song.locked {
     background-color: #6a6868;
-    border: 10px solid #504f4f; }
+    border: 10px solid #504f4f;
+    color: white; }
     .song.locked:not(.locked):hover {
       background-color: #848181;
       border: 10px solid #6a6868; }
@@ -59,7 +60,8 @@ ul {
       border: 10px solid #373535; }
   .song.beach {
     background-color: #34b0e0;
-    border: 10px solid #1e95c3; }
+    border: 10px solid #1e95c3;
+    color: white; }
     .song.beach:not(.locked):hover {
       background-color: #60c1e7;
       border: 10px solid #34b0e0; }
@@ -68,7 +70,8 @@ ul {
       border: 10px solid #177397; }
   .song.bukid {
     background-color: #64c746;
-    border: 10px solid #4ea733; }
+    border: 10px solid #4ea733;
+    color: white; }
     .song.bukid:not(.locked):hover {
       background-color: #85d36d;
       border: 10px solid #64c746; }
@@ -77,7 +80,8 @@ ul {
       border: 10px solid #3c8027; }
   .song.barrio {
     background-color: #db673a;
-    border: 10px solid #bf4f23; }
+    border: 10px solid #bf4f23;
+    color: white; }
     .song.barrio:not(.locked):hover {
       background-color: #e38865;
       border: 10px solid #db673a; }
@@ -99,6 +103,20 @@ ul {
   width: 960px;
   height: 640px; }
 
+.title {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 360px; }
+  .title h2 {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0; }
+
 .page {
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
@@ -117,7 +135,8 @@ canvas {
 
 section {
   width: 960px;
-  height: 640px; }
+  height: 640px;
+  position: relative; }
 
 #game {
   position: relative; }
@@ -130,8 +149,30 @@ section {
 .overlay {
   position: absolute; }
 
+.footer {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  text-align: right;
+  padding: 20px; }
+
 .end-screen {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.8);
   top: 0px;
   color: white; }
+
+.btn {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  background-color: #34b0e0;
+  border: 10px solid #1e95c3;
+  color: white; }
+  .btn:not(.locked):hover {
+    background-color: #60c1e7;
+    border: 10px solid #34b0e0; }
+  .btn:not(.locked):active {
+    background-color: #1e95c3;
+    border: 10px solid #177397; }
