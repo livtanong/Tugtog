@@ -39,18 +39,18 @@ Notif = (function(){
     this.age = 0;
     return this.speed = 40;
   };
-  prototype.draw = function(ctx){
-    var h, w;
+  prototype.draw = function(ctx, sdata){
+    var b, h, w;
+    b = sdata.frames["balloon.png"].frame;
     ctx.globalAlpha = this.opacity;
-    ctx.fillStyle = "white";
-    h = 128 * this.scale;
-    w = 128 * this.scale;
-    ctx.fillRect(this.x - w / 2, this.y - h / 2, w, h);
+    h = b.h * this.scale * 0.5;
+    w = b.w * this.scale * 0.5;
+    ctx.drawImage(sprites, b.x, b.y, b.w, b.h, this.x - h / 2, this.y - w / 2 + 20, w, h);
     ctx.fillStyle = "brown";
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
     ctx.font = "24px 'Action Man'";
-    ctx.fillText(this.message, this.x, this.y - 20);
+    ctx.fillText(this.message, this.x, this.y - 10);
     return ctx.globalAlpha = 1;
   };
   return Notif;

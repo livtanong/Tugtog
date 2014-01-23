@@ -36,16 +36,17 @@ class Notif
 		@age = 0
 		@speed = 40
 
-	draw: (ctx) ->
+	draw: (ctx, sdata) ->
+		b = sdata.frames["balloon.png"].frame
 		ctx.globalAlpha = @opacity
-		ctx.fillStyle = "white"
-		h = 128 * @scale
-		w = 128 * @scale
-		ctx.fillRect(@x - w/2, @y - h/2, w, h)
+		h = b.h * @scale * 0.5
+		w = b.w * @scale * 0.5
+		ctx.drawImage(sprites, b.x, b.y, b.w, b.h, @x - h/2, @y - w/2 + 20, w, h)
+		# ctx.fillRect(@x - w/2, @y - h/2, w, h)
 
 		ctx.fillStyle = "brown"
 		ctx.textAlign = "center"
 		ctx.textBaseline = "top"
 		ctx.font = "24px 'Action Man'"
-		ctx.fillText(@message, @x, @y - 20)
+		ctx.fillText(@message, @x, @y - 10)
 		ctx.globalAlpha = 1

@@ -33,7 +33,7 @@ class Renderer
 				# @drawStartLine()
 				@drawFinishLine()
 
-				[notif.draw(@ctx) for notif in game.notifs]
+				[notif.draw(@ctx, @sdata) for notif in game.notifs]
 
 			@drawChars(game.chars)
 			# @drawUI(game.ui)

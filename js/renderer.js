@@ -57,7 +57,7 @@ Renderer = (function(){
         this$.drawFinishLine();
         for (i$ = 0, len$ = (ref$ = game.notifs).length; i$ < len$; ++i$) {
           notif = ref$[i$];
-          notif.draw(this$.ctx);
+          notif.draw(this$.ctx, this$.sdata);
         }
       }
       return this$.drawChars(game.chars);
