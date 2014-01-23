@@ -1,3 +1,22 @@
+h1 {
+  font-size: 64px; }
+
+h2 {
+  font-size: 48px; }
+
+h3 {
+  font-size: 24px; }
+
+a {
+  cursor: pointer; }
+
+button {
+  background: transparent;
+  outline: none;
+  border: none;
+  font-family: "Action Man";
+  cursor: pointer; }
+
 body {
   font-family: "Action Man";
   margin: 0; }
@@ -95,12 +114,12 @@ section {
   position: relative; }
 
 .score {
-  position: absolute;
   text-align: center;
   width: 960px;
-  font-size: 48px;
-  color: white;
-  margin: 0; }
+  color: white; }
+
+.overlay {
+  position: absolute; }
 
 .end-screen {
   position: absolute;

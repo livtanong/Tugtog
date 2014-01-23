@@ -54,7 +54,7 @@ Game = (function(){
   };
   prototype.triggerNote = function(note, lane){
     note.isActive = false;
-    this.notifs.push(new Notif(lane.char, note.grade + "!, " + deci2(note.diff) + " s"));
+    this.notifs.push(new Notif(lane.char, note.grade + "!"));
     return this.score += settings.score(note.grade);
   };
   prototype.update = function(){

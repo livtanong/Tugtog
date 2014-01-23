@@ -46,8 +46,8 @@ class Game
 
 	triggerNote: (note, lane) ->
 		note.isActive = false
-		@notifs.push(new Notif(lane.char, "#{note.grade}!, #{deci2(note.diff)} s"))
-
+		@notifs.push(new Notif(lane.char, "#{note.grade}!"))
+		# , #{deci2(note.diff)
 		@score += settings.score(note.grade)
 
 	update: ~>

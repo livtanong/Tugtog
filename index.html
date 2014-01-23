@@ -36,7 +36,7 @@
 			ng-style="{'background-image': 'url(images/bgs/' + getTheme(level.theme).menu + ')'}"> 
 			<ul class="songs">
 				<li>
-					<a class="page" ng-click="back()"><img src="images/left.png"></a>
+					<button class="page" ng-click="back()"><img src="images/left.png"></button>
 				</li>
 				<li>
 					<div class="song locked">
@@ -45,10 +45,10 @@
 					</div>
 				</li>
 				<li>
-					<a class="song" ng-click="playSong(level)" ng-class="level.theme">
+					<button class="song" ng-click="playSong(level)" ng-class="level.theme">
 						<img ng-src="images/{{level.icon}}">
 						<h3>{{level.name}}</h3>
-					</a>
+					</button>
 				</li>
 				<li>
 					<div class="song locked">
@@ -57,13 +57,15 @@
 					</div>
 				</li>
 				<li>
-					<a class="page" ng-click="next()"><img src="images/right.png"></a>
+					<button class="page" ng-click="next()"><img src="images/right.png"></button>
 				</li>
 			</ul>
 		</div>
 	</section>
 	<section ng-show="current=='game'" ng-style="{'background-image': 'url(images/bgs/' + themes[currentLevel].bg + ')'}">
-		<h2 class="score">{{game.score}}</h2>
+		<div class="overlay">
+			<h2 class="score">{{game.score}}</h2>
+		</div>
 		<canvas 
 			id="tugtog" 
 			width="960" 
@@ -71,9 +73,11 @@
 		</canvas>
 	</section>
 	<section ng-show="game.hasLevelEnded && (current == 'game')" class="end-screen">
-		ended! here is your score
-		<h2 class="score">{{game.score}}</h2>
-		<a ng-click="endSong()">Back to main menu</a>
+		<div class="score">
+			<h1>End!</h1>
+			<h2 class="score">{{game.score}}</h2>
+			<button ng-click="endSong()">Back to main menu</button>
+		</div>
 	</section>
 </body>
 </html>
