@@ -44,7 +44,7 @@ class Notif
 		ctx.drawImage(sprites, b.x, b.y, b.w, b.h, @x - h/2, @y - w/2 + 20, w, h)
 		# ctx.fillRect(@x - w/2, @y - h/2, w, h)
 
-		ctx.fillStyle = "brown"
+		ctx.fillStyle = "#6a6868"
 		ctx.textAlign = "center"
 		ctx.textBaseline = "top"
 		ctx.font = "24px 'Action Man'"

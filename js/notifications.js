@@ -46,7 +46,7 @@ Notif = (function(){
     h = b.h * this.scale * 0.5;
     w = b.w * this.scale * 0.5;
     ctx.drawImage(sprites, b.x, b.y, b.w, b.h, this.x - h / 2, this.y - w / 2 + 20, w, h);
-    ctx.fillStyle = "brown";
+    ctx.fillStyle = "#6a6868";
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
     ctx.font = "24px 'Action Man'";
