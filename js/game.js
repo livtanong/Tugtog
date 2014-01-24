@@ -35,7 +35,8 @@ Game = (function(){
     return state.timeStartLevel = this.level.audio.getTime() + this.level.leadTime / 1000;
   };
   prototype.end = function(){
-    return this.hasLevelEnded = true;
+    this.hasLevelEnded = true;
+    return this.scope.current = 'end';
   };
   prototype.startLevel = function(){
     state.currBeat = 0;

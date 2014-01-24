@@ -33,6 +33,7 @@ class Game
 
 	end: ->
 		@hasLevelEnded = true
+		@scope.current = 'end'
 
 	startLevel: ->
 		state.currBeat = 0
