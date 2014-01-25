@@ -2,7 +2,7 @@
 
 "Chick Note.png":
 {
-	"frame": {"x":498,"y":328,"w":60,"h":60},
+	"frame": {"x":2,"y":2,"w":60,"h":60},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":60},
@@ -10,7 +10,7 @@
 },
 "Crab Note.png":
 {
-	"frame": {"x":498,"y":266,"w":60,"h":60},
+	"frame": {"x":64,"y":2,"w":60,"h":60},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":60},
@@ -18,7 +18,7 @@
 },
 "Rice Note.png":
 {
-	"frame": {"x":498,"y":204,"w":60,"h":60},
+	"frame": {"x":126,"y":2,"w":60,"h":60},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":60},
@@ -26,7 +26,7 @@
 },
 "balloon.png":
 {
-	"frame": {"x":2,"y":2,"w":400,"h":400},
+	"frame": {"x":188,"y":2,"w":400,"h":400},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":400},
@@ -34,7 +34,7 @@
 },
 "difficulty birds/e1.png":
 {
-	"frame": {"x":204,"y":606,"w":200,"h":200},
+	"frame": {"x":590,"y":2,"w":200,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
@@ -42,7 +42,7 @@
 },
 "difficulty birds/e2.png":
 {
-	"frame": {"x":404,"y":2,"w":200,"h":200},
+	"frame": {"x":792,"y":2,"w":200,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
@@ -50,7 +50,7 @@
 },
 "difficulty birds/h1.png":
 {
-	"frame": {"x":204,"y":404,"w":200,"h":200},
+	"frame": {"x":2,"y":404,"w":200,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
@@ -58,7 +58,7 @@
 },
 "difficulty birds/h2.png":
 {
-	"frame": {"x":2,"y":808,"w":200,"h":200},
+	"frame": {"x":204,"y":404,"w":200,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
@@ -66,7 +66,7 @@
 },
 "difficulty birds/m1.png":
 {
-	"frame": {"x":2,"y":606,"w":200,"h":200},
+	"frame": {"x":406,"y":404,"w":200,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
@@ -74,7 +74,7 @@
 },
 "difficulty birds/m2.png":
 {
-	"frame": {"x":2,"y":404,"w":200,"h":200},
+	"frame": {"x":608,"y":404,"w":200,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
@@ -82,7 +82,7 @@
 },
 "drummer/0.png":
 {
-	"frame": {"x":406,"y":393,"w":92,"h":187},
+	"frame": {"x":810,"y":404,"w":92,"h":187},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":92,"h":187},
@@ -90,7 +90,7 @@
 },
 "drummer/1.png":
 {
-	"frame": {"x":392,"y":808,"w":92,"h":187},
+	"frame": {"x":904,"y":404,"w":92,"h":187},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":92,"h":187},
@@ -98,7 +98,7 @@
 },
 "drummer/2.png":
 {
-	"frame": {"x":298,"y":808,"w":92,"h":187},
+	"frame": {"x":2,"y":606,"w":92,"h":187},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":92,"h":187},
@@ -106,7 +106,7 @@
 },
 "drummer/3.png":
 {
-	"frame": {"x":204,"y":808,"w":92,"h":187},
+	"frame": {"x":96,"y":606,"w":92,"h":187},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":92,"h":187},
@@ -114,7 +114,7 @@
 },
 "drummer/head.png":
 {
-	"frame": {"x":404,"y":204,"w":92,"h":187},
+	"frame": {"x":190,"y":606,"w":92,"h":187},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":92,"h":187},
@@ -127,6 +127,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:dd6c28605569a4cba33396f8d72d75d4:48a2601529764a63d269cd1fc16c532b:1eabdf11f75e3a4fe3147baf7b5be24b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:08d505b341be52fdf682a78e76533ab7:48a2601529764a63d269cd1fc16c532b:1eabdf11f75e3a4fe3147baf7b5be24b$"
 }
 }
