@@ -32,9 +32,23 @@
 		class="title"
 		ng-show="current == 'title'"
 		ng-style="{'background-image': 'url(images/bgs/title.png)'}">
-		<button ng-click="current = 'levels'">
-			<h2 class="press-space">Press Space</h2>
-		</button>
+		<div class="btn-container">
+			<button class="btn btn-block btn-large" ng-click="current = 'levels'">
+				Play
+			</button>
+			<button class="btn btn-block btn-large" ng-click="current = 'credits'">
+				Credits
+			</button>
+		</div>
+	</section>
+	<section 
+		id="credits" 
+		ng-show="current == 'credits'">
+		<div class="footer">
+			<button class="btn" ng-click="current = 'title'">
+				Back
+			</button>
+		</div>
 	</section>
 	<section ng-show="current=='levels'">
 		<div 

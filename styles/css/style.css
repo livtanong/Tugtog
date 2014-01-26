@@ -108,7 +108,7 @@ ul {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   text-align: center;
-  padding-top: 360px; }
+  padding-top: 440px; }
   .title h2 {
     display: inline-block;
     background-color: rgba(0, 0, 0, 0.6);
@@ -167,6 +167,9 @@ section {
   color: white;
   padding-top: 134px; }
 
+#credits {
+  background-image: url(/images/bgs/credits.png); }
+
 .btn {
   padding: 10px;
   border-radius: 10px;
@@ -180,3 +183,12 @@ section {
   .btn:not(.locked):active {
     background-color: #1e95c3;
     border: 10px solid #177397; }
+  .btn.btn-block {
+    display: block;
+    width: 100%; }
+  .btn.btn-large {
+    font-size: 24px; }
+
+.btn-container {
+  width: 60%;
+  margin: 0px auto; }
