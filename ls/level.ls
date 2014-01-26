@@ -1,6 +1,7 @@
 class Level
 	(@meta) ->
 		@audio = new buzz.sound(@meta.src)
+		@drum = new buzz.sound("/audio/drum.mp3")
 		@sheetProto = @meta.sheet
 		@sheet = ^^@sheetProto
 		@bpm = @meta.bpm
@@ -74,4 +75,5 @@ class Level
 				note.isPlaying = false
 
 	init: (level) ->
-		@audio.load()
+		@audio.load!
+		@drum.load!

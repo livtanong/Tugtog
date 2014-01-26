@@ -6,6 +6,7 @@ Level = (function(){
   function Level(meta){
     this.meta = meta;
     this.audio = new buzz.sound(this.meta.src);
+    this.drum = new buzz.sound("/audio/drum.mp3");
     this.sheetProto = this.meta.sheet;
     this.sheet = clone$(this.sheetProto);
     this.bpm = this.meta.bpm;
@@ -77,7 +78,8 @@ Level = (function(){
     }
   };
   prototype.init = function(level){
-    return this.audio.load();
+    this.audio.load();
+    return this.drum.load();
   };
   return Level;
 }());

@@ -79,6 +79,7 @@ class Game
 						lane = @level.lanes[note]
 						if lane
 							@notesToRender.push(@level.spawnNote(lane))
+							@level.drum.play!
 							lane.char.hit!
 					[note.pulse! for note in @notesToRender]
 					[lane.char.pulse! for , lane of @level.lanes]

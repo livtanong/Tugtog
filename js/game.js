@@ -74,6 +74,7 @@ Game = (function(){
             lane = this.level.lanes[note];
             if (lane) {
               this.notesToRender.push(this.level.spawnNote(lane));
+              this.level.drum.play();
               lane.char.hit();
             }
           }
